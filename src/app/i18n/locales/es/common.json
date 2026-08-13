@@ -1,0 +1,423 @@
+{
+  "brand": {
+    "name": "Panoramia",
+    "suffix": "Capital",
+    "fullName": "Panoramia Capital"
+  },
+  "nav": {
+    "home": "Inicio",
+    "aboutUs": "Nosotros",
+    "trackRecord": "Trayectoria",
+    "currentProjects": "Proyectos actuales",
+    "contact": "Contacto",
+    "mainAria": "Navegación principal",
+    "openMenuAria": "Abrir menú",
+    "closeMenuAria": "Cerrar menú",
+    "mobileMenuAria": "Navegación móvil"
+  },
+  "language": {
+    "en": "EN",
+    "es": "ES",
+    "switchAria": "Change language"
+  },
+  "lightbox": {
+    "closeAria": "Cerrar visor de imagen",
+    "prevAria": "Imagen anterior",
+    "nextAria": "Imagen siguiente",
+    "dialogAria": "Visor de imagen"
+  },
+  "whatsapp": {
+    "aria": "Contáctanos por WhatsApp"
+  },
+  "footer": {
+    "aria": "Pie de página",
+    "address": "Dirección",
+    "addressValue": "Oficina Desarrollo Urbanístico Hacienda El Encantado. Caracas. Venezuela",
+    "email": "Correo",
+    "phone": "Teléfono",
+    "sitemap": "Mapa del sitio",
+    "rights": "© {{year}} Panoramia Capital. Todos los derechos reservados.",
+    "instagramAria": "Panoramia Capital en Instagram"
+  },
+  "pages": {
+    "home": {
+      "title": "Inicio",
+      "description": "Bienvenido a Panoramia Capital.",
+      "hero": {
+        "title": "Plataforma de Inversión\nInmobiliaria en Venezuela",
+        "text": "Coinvirtiendo junto a socios para desarrollar y operar activos reales de alta calidad en mercados urbanos emergentes.",
+        "cta": "Saber más",
+        "slides": {
+          "avilaAlt": "Vista panorámica de Caracas y el Ávila",
+          "caracasAlt": "Vista de Caracas"
+        },
+        "dotsAria": "Slides del hero"
+      },
+      "intro": {
+        "text": "Panoramia Capital origina, estructura, desarrolla y opera proyectos inmobiliarios, coinvirtiendo junto a Limited Partners en cada vehículo de inversión. Durante más de cuatro décadas, nuestro equipo ha entregado desarrollos residenciales, logísticos y de uso mixto en entornos urbanos complejos."
+      },
+      "skills": {
+        "aria": "Logros clave",
+        "items": {
+          "experience": {
+            "suffix": " Años",
+            "description": "Experiencia combinada de ejecución"
+          },
+          "land": {
+            "suffix": "",
+            "description": "Hectáreas de tierra en Caracas por desarrollar"
+          },
+          "residential": {
+            "suffix": "",
+            "description": "Unidades residenciales entregadas"
+          },
+          "logistics": {
+            "suffix": "",
+            "description": "M² de activos logísticos y comerciales construidos"
+          }
+        }
+      },
+      "platform": {
+        "title": "Plataforma verticalmente integrada",
+        "intro": "Panoramia Capital opera una plataforma de inversión inmobiliaria verticalmente integrada. Actuamos como General Partner en vehículos de inversión específicos por proyecto, coinvirtiendo junto a Limited Partners y supervisando el ciclo completo del activo: desde la adquisición de tierra hasta la estabilización y la salida.",
+        "imageAlt": "Desarrollo de residencias specialty",
+        "points": {
+          "execution": {
+            "title": "Experiencia de ejecución",
+            "text": "Cuatro décadas de entrega de activos inmobiliarios en Venezuela."
+          },
+          "coInvestment": {
+            "title": "Coinversión como General Partner",
+            "text": "Invertimos nuestro propio capital en cada proyecto, alineando riesgo y retornos con nuestros Limited Partners."
+          },
+          "land": {
+            "title": "Posicionamiento estratégico de tierra",
+            "text": "El control de posiciones de tierra urbana premium brinda ventaja de origen en submercados de alta barrera."
+          }
+        }
+      },
+      "pipeline": {
+        "title": "Pipeline de desarrollo activo",
+        "subtitle": "Estructurado como vehículos de inversión dedicados (GP/LP)",
+        "description": "Panoramia mantiene un pipeline activo de desarrollos residenciales, logísticos y de uso mixto en corredores urbanos estratégicos. Cada proyecto se estructura como un vehículo de inversión dedicado, con Panoramia como General Partner y coinvirtiendo junto a Limited Partners.",
+        "prevAria": "Proyectos anteriores",
+        "nextAria": "Proyectos siguientes",
+        "dotsAria": "Proyectos del pipeline",
+        "cards": {
+          "logistics": {
+            "title": "Logística urbana",
+            "subtitle": "Almacenes de última milla",
+            "imageAlt": "Instalación de logística urbana"
+          },
+          "residential": {
+            "title": "Residencial specialty",
+            "subtitle": "Desarrollos que atienden demanda no cubierta",
+            "imageAlt": "Desarrollo residencial specialty"
+          },
+          "land": {
+            "title": "Tenencias de tierra",
+            "subtitle": "Residencias",
+            "imageAlt": "Tenencias estratégicas de tierra"
+          },
+          "beach": {
+            "title": "Casas de lujo frente al mar",
+            "subtitle": "Segunda vivienda y ocio",
+            "imageAlt": "Casas de lujo frente al mar"
+          }
+        }
+      },
+      "selectedTrack": {
+        "title": "Trayectoria seleccionada",
+        "description": "Durante más de cuatro décadas, el liderazgo de Panoramia ha ejecutado proyectos residenciales, logísticos y de regeneración urbana en Venezuela. Nuestro portafolio refleja una entrega consistente de activos inmobiliarios complejos en entornos operativos desafiantes.",
+        "prevAria": "Trayectoria anterior",
+        "nextAria": "Trayectoria siguiente",
+        "dotsAria": "Trayectoria seleccionada",
+        "cards": {
+          "residential": {
+            "title": "Desarrollo de tierra a vivienda residencial de alta densidad",
+            "subtitle": "Proyecto de relleno urbano que atiende demanda habitacional no cubierta.",
+            "imageAlt": "Desarrollo de vivienda residencial de alta densidad"
+          },
+          "logistics": {
+            "title": "Desarrollo de tierra a logística de última milla",
+            "subtitle": "Activos de distribución que apoyan cadenas de suministro modernas.",
+            "imageAlt": "Desarrollo de logística de última milla"
+          },
+          "luxury": {
+            "title": "Desarrollo de tierra a residencial de lujo",
+            "subtitle": "Redesarrollo de uso mixto a gran escala.",
+            "imageAlt": "Desarrollo residencial de lujo"
+          }
+        }
+      },
+      "team": {
+        "title": "Conoce a nuestro equipo",
+        "subtitle": "Fundadores y directores:",
+        "coPrincipals": "Co-Principales",
+        "members": "Miembros"
+      }
+    },
+    "aboutUs": {
+      "title": "Nosotros",
+      "description": "Sección sobre nosotros.",
+      "seeMore": "Ver más",
+      "seeLess": "Ver menos",
+      "banner": {
+        "title": "Nosotros",
+        "text": "Panoramia Capital es una compañía de desarrollo e inversión inmobiliaria con más de 40 años de experiencia en la concepción y desarrollo de proyectos urbanos, residenciales, complejos de almacenes logísticos y comerciales. La experiencia y trayectoria de Panoramia se ha concentrado en Caracas, Venezuela.",
+        "imageAlt": "Vista de Caracas y El Ávila"
+      },
+      "approach": {
+        "title": "Panoramia Capital",
+        "text1": "Está compuesto por un grupo de profesionales con vasta experiencia en desarrollo inmobiliario, fundraising inmobiliario, diseño, construcción y ventas. Panoramia Capital se ha concentrado en integrar todos los aspectos que un desarrollo requiere y en trabajar en sus propios proyectos. Creando valor en la concepción y ejecución, más que en prestar servicios a terceros.",
+        "text2": "Invertimos en los proyectos en los que ponemos nuestra mente y trabajo, y nos asociamos con limited partners locales y extranjeros en cada proyecto. A lo largo de los últimos años, Panoramia ha adquirido y mantiene un amplio banco de tierra, estratégicamente ubicado en Caracas. Panoramia ha desarrollado proyectos significativamente grandes, con montos de inversión relevantes.",
+        "imageAlt": "Desarrollo residencial para adultos mayores de Panoramia",
+        "hint": "Haz clic para ampliar",
+        "openAria": "Ver más grande: {{alt}}"
+      },
+      "competitiveAdvantage": {
+        "title": "Ventaja competitiva",
+        "text1": "La ventaja competitiva de Panoramia Capital radica en su vasta experiencia en Venezuela, un equipo integral de profesionales que cubre cada aspecto del proyecto desde la identificación de la oportunidad hasta su finalización, su significativo banco de tierra en ubicaciones privilegiadas en Caracas, y el hecho de que actuamos como General Partner y co-invertimos de forma significativa en todos nuestros desarrollos.",
+        "text2": "Panoramia Capital y su junta ejecutiva han urbanizado en conjunto más de 200 hectáreas en Caracas, construido más de 7,500 apartamentos para el segmento de ingresos medios y algunos para compradores de alto nivel, y han desarrollado +70,000 m² de almacenes y centros comerciales, entre otros desarrollos.",
+        "text3": "Los propietarios y directores gerentes de Panoramia Capital tienen una trayectoria reconocida localmente por su iniciativa, conocimiento del mercado y transparencia dentro del sector inmobiliario y financiero venezolano.",
+        "imageAlt": "Exterior del desarrollo residencial para adultos mayores de Panoramia",
+        "hint": "Haz clic para ampliar",
+        "openAria": "Ver más grande: {{alt}}"
+      },
+      "meetOurTeam": {
+        "title": "Conoce a nuestro equipo",
+        "subtitle": "Fundadores y Directores",
+        "groups": {
+          "coPrincipals": "Co-Principales",
+          "members": "Miembros"
+        }
+      }
+    },
+
+
+    "trackRecord": {
+      "title": "Trayectoria",
+      "description": "Sección de trayectoria.",
+      "banner": {
+        "title": "Trayectoria",
+        "text": "Cuatro décadas de proyectos concebidos, construidos y entregados en Caracas.",
+        "imageAlt": "Vista aérea del desarrollo urbano de Caracas"
+      },
+      "marketOpportunities": {
+        "title": "Oportunidades de mercado",
+        "text": "Panoramia Capital evalúa constantemente oportunidades en distintos subsectores de la industria inmobiliaria en Venezuela. Aunque los subsectores tradicionales atraviesan actualmente un estrés significativo desde el punto de vista de negocio y comercial, existen subsectores de nicho que presentan oportunidades por distintas razones — como la ubicación, la modernidad en actualizaciones tecnológicas, cambios en los hábitos y patrones de compra de los consumidores, así como aquellas que se abren por cambios en el desarrollo macroeconómico de Venezuela y sus principales industrias.",
+        "imageAlt": "Arquitectura urbana moderna que refleja oportunidades de mercado"
+      },
+      "projects": {
+        "residential": {
+          "title": "Residencial de alta densidad",
+          "description": "Página de proyecto de trayectoria lista para contenido."
+        },
+        "logistics": {
+          "title": "Logística de última milla",
+          "description": "Página de proyecto de trayectoria lista para contenido."
+        },
+        "luxury": {
+          "title": "Residencial de lujo",
+          "description": "Página de proyecto de trayectoria lista para contenido."
+        }
+      }
+    },
+
+
+    "landHoldings": {
+      "title": "Tenencias de tierra",
+      "description": "Sección de tenencias de tierra.",
+      "banner": {
+        "title": "Desarrollo de tierra",
+        "text": "Panoramia controla una vasta extensión de terreno en bruto ubicada en Caracas y dentro del área de expansión de la ciudad.",
+        "imageAlt": "Terrenos de tenencias de tierra en Caracas"
+      },
+      "competitiveAdvantage": {
+        "title": "Ventaja competitiva clave",
+        "text": "Las tenencias de tierra de Panoramia permiten a la compañía desarrollar sus propios proyectos en múltiples categorías de uso, controlando la cadena de valor completa desde la tierra en bruto hasta el desarrollo terminado.",
+        "strongText": "Esta integración vertical reduce la dependencia de propietarios terceros y maximiza los retornos en cada etapa del ciclo de desarrollo.",
+        "cards": {
+          "location": {
+            "title": "Zona de expansión de la ciudad",
+            "label": "Ubicación estratégica"
+          },
+          "uses": {
+            "title": "Múltiples categorías de uso",
+            "label": "Residencial · Comercial · Uso mixto"
+          }
+        }
+      },
+      "useCategories": {
+        "aria": "Categorías de uso",
+        "residential": "Residencial",
+        "commercial": "Comercial",
+        "mixedUse": "Uso mixto"
+      },
+      "strategicPositioning": {
+        "eyebrow": "Posicionamiento estratégico",
+        "title": "Área Metropolitana de Caracas",
+        "imageAlt": "Vista satelital del Gran Caracas con overlays del alcance de las tenencias de tierra de Panoramia",
+        "text1": "Vista satelital del área del Gran Caracas, que se extiende desde Catia en el oeste hasta Petare en el este — el corredor urbano completo de la ciudad a lo largo del valle del Guaire.",
+        "text2": "El Encantado, marcado en el mapa, se ubica en un punto de inflexión clave en el borde sureste del área metropolitana, donde la ciudad transita hacia la zona de expansión en dirección a los valles del Tuy.",
+        "text3": "Los overlays en forma de cuarto de círculo ilustran el alcance de las tenencias de tierra de Panoramia:",
+        "cards": {
+          "radius5": {
+            "title": "Radio de 5 KM / 10 min en auto",
+            "text": "Zona de desarrollo inmediato — cubre la periferia urbana central y las rutas de acceso principales."
+          },
+          "radius10": {
+            "title": "Radio de 10 KM / 20 min en auto",
+            "text": "Alcance extendido — abarca corredores de crecimiento secundarios y territorio de expansión futura."
+          },
+          "ownedLand": {
+            "title": "100% tierra propia dentro de la zona de expansión",
+            "text": "Control total de la cadena de valor desde el terreno en bruto hasta las propiedades desarrolladas."
+          }
+        }
+      }
+    },
+
+    "currentProjects": {
+      "title": "Proyectos actuales",
+      "description": "Sección de proyectos actuales.",
+      "banner": {
+        "title": "Proyectos actuales",
+        "text": "Las expectativas de compra de los consumidores han cambiado: quieren y esperan que sus necesidades se satisfagan de forma inmediata, sin esfuerzo y a un precio accesible.",
+        "imageAlt": "Centro logístico de microfulfillment de última milla"
+      },
+      "microFulfillment": {
+        "title": "Centros de Micro Fulfillment y Almacenamiento de Última Milla",
+        "imageAlt": "Instalación de centro de micro fulfillment",
+        "seeMore": "Ver más",
+        "seeLess": "Ver menos",
+        "points": {
+          "consumerShift": {
+            "title": "Cambio del consumidor",
+            "text": "Los compradores modernos exigen la entrega el mismo día de forma inmediata, sin esfuerzo y asequible como un requisito estándar."
+          },
+          "disintermediation": {
+            "title": "Desintermediación",
+            "text": "Los distribuidores utilizan cada vez más modelos directos al consumidor (D2C) a través de redes sociales, omitiendo el retail tradicional para optimizar costos y el control de inventario."
+          },
+          "operationalIntelligence": {
+            "title": "Inteligencia operativa",
+            "text": "La integración de sistemas de gestión de almacenes (WMS) y analítica de datos permite modelar la demanda de forma predictiva, ofreciendo una ventaja competitiva frente a plataformas logísticas heredadas."
+          },
+          "urbanInfrastructure": {
+            "title": "Infraestructura urbana",
+            "text": "Los centros de micro-fulfillment ubicados dentro de los límites de la ciudad son esenciales para ejecutar entregas de última milla eficientes y mejorar la experiencia del cliente."
+          },
+          "panoramiaDevelopment": {
+            "title": "Desarrollo Panoramia",
+            "text": "La compañía está ejecutando actualmente un desarrollo por fases y a gran escala de almacenes de última milla en una ubicación estratégica en Caracas."
+          }
+        }
+      },
+      "luxuryHouses": {
+        "title": "Casas de lujo en Caracas",
+        "subtitle": "Viviendas de lujo en Alto Hatillo",
+        "points": {
+          "strategicLocation": {
+            "title": "Ubicación estratégica",
+            "text": "Terreno de 50 hectáreas en el sureste de Caracas, con vistas panorámicas, clima más fresco y proximidad a zonas comerciales principales."
+          },
+          "lowDensityLuxury": {
+            "title": "Lujo de baja densidad",
+            "text": "Planificado para solo 100 residencias de lujo, con parcelaciones que superan los estándares históricos de desarrollo en Caracas."
+          },
+          "projectTimeline": {
+            "title": "Cronograma del proyecto",
+            "text": "La construcción de la Fase 1 comenzó en octubre de 2024, con fecha objetivo de finalización en enero de 2027."
+          }
+        },
+        "gallery": {
+          "openAria": "Ver más grande: {{alt}}",
+          "image01Alt": "Casa de lujo en Caracas, vista exterior 1",
+          "image02Alt": "Casa de lujo en Caracas, vista exterior 2",
+          "image03Alt": "Casa de lujo en Caracas, vista exterior 3",
+          "image04Alt": "Casa de lujo en Caracas, vista exterior 4"
+        }
+      },
+      "nicheResidences": {
+        "title": "Residencias para segmentos de nicho",
+        "subtitle": "Residencias para ejecutivos corporativos",
+        "points": {
+          "marketGap": {
+            "title": "Brecha de mercado",
+            "text": "Identificación de una demanda no atendida de vivienda ejecutiva temporal para personal extranjero en Caracas."
+          },
+          "assetClass": {
+            "title": "Clase de activo",
+            "text": "Desarrollo de edificios de alquiler corporativo especializados y con alta dotación de amenidades, un tipo de propiedad actualmente inexistente en Venezuela."
+          },
+          "feasibility": {
+            "title": "Viabilidad",
+            "text": "Altriun cuenta con la tierra y la capacidad operativa para atender esta necesidad logística proyectada."
+          }
+        },
+        "gallery": {
+          "openAria": "Ver más grande: {{alt}}",
+          "hint": "Clic para ampliar",
+          "image01Alt": "Residencia para ejecutivos corporativos, vista 1",
+          "image02Alt": "Residencia para ejecutivos corporativos, vista 2"
+        }
+      },
+      "secondHome": {
+        "title": "Propiedades de segunda vivienda",
+        "subtitle": "Casas de playa de lujo cerca de Caracas",
+        "meta": "La Sabana · 100 km · 90 min",
+        "text": "Casas de lujo en una comunidad privada cerrada en La Sabana, a 100 km o 90 minutos de Caracas. Este desarrollo se estructura bajo un modelo de propiedad compartida, de modo que cada casa es propiedad y mantenimiento de hasta cuatro partes.",
+        "gallery": {
+          "openAria": "Ver más grande: {{alt}}",
+          "dotsAria": "Galería de segunda vivienda",
+          "dotAria": "Ir a la imagen {{index}}",
+          "image01Alt": "Casa exclusiva frente al mar cerca de Caracas, vista 1",
+          "image02Alt": "Casa exclusiva frente al mar cerca de Caracas, vista 2",
+          "image03Alt": "Casa exclusiva frente al mar cerca de Caracas, vista 3",
+          "image04Alt": "Casa exclusiva frente al mar cerca de Caracas, vista 4",
+          "image05Alt": "Casa exclusiva frente al mar cerca de Caracas, vista 5",
+          "image06Alt": "Casa exclusiva frente al mar cerca de Caracas, vista 6",
+          "image07Alt": "Casa exclusiva frente al mar cerca de Caracas, vista 7"
+        }
+      },
+      "estanciasLosBufalos": {
+        "title": "Estancias Los Bufalos",
+        "hint": "Clic para ampliar",
+        "openAria": "Ver más grande: {{alt}}",
+        "imageAlt": "Desarrollo de comunidad ecuestre Estancias Los Bufalos",
+        "meta": {
+          "parcels": "70+ parcelas",
+          "plotSize": "~5.000 m²",
+          "club": "Club ecuestre"
+        },
+        "text1": "Estancias Los Bufalos es un desarrollo urbano diseñado como comunidad ecuestre, especialmente para quienes desean una casa de campo en la ciudad y para quienes practican equitación y team penning.",
+        "text2": "Está compuesto por más de 70 parcelas de aproximadamente 5.000 m² ubicadas en una hermosa colina con vista al sur de Caracas. Todo el conjunto está circundado por caminos de equitación y cuenta con un club ecuestre completamente equipado, con canchas, establos y demás instalaciones."
+      }
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Sección de contacto.",
+      "intro": "Contacta a Panoramia Capital para consultas de desarrollo, inversión o alianzas.",
+      "info": {
+        "email": "Correo",
+        "phone": "Teléfono",
+        "address": "Dirección",
+        "addressValue": "Oficina Desarrollo Urbanístico Hacienda El Encantado. Caracas. Venezuela"
+      },
+      "form": {
+        "title": "Envíanos un mensaje",
+        "name": "Nombre / Empresa",
+        "namePlaceholder": "Tu nombre o empresa",
+        "email": "Correo",
+        "emailPlaceholder": "tu@email.com",
+        "message": "Mensaje",
+        "messagePlaceholder": "¿En qué podemos ayudarte?",
+        "submit": "Enviar",
+        "sent": "Se abrirá tu cliente de correo con el mensaje listo para enviar.",
+        "mailSubject": "Contacto de {{name}}"
+      },
+      "mapTitle": "Mapa de ubicación de El Encantado Ventas"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "stop": [
+      {
+        "command": "node .cursor/hooks/ts-review.mjs",
+        "timeout": 130,
+        "loop_limit": 3
+      }
+    ]
+  }
+}

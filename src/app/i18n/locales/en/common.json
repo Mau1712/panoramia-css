@@ -1,0 +1,423 @@
+{
+  "brand": {
+    "name": "Panoramia",
+    "suffix": "Capital",
+    "fullName": "Panoramia Capital"
+  },
+  "nav": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "trackRecord": "Track Record",
+    "currentProjects": "Current Projects",
+    "contact": "Contact",
+    "mainAria": "Main navigation",
+    "openMenuAria": "Open menu",
+    "closeMenuAria": "Close menu",
+    "mobileMenuAria": "Mobile navigation"
+  },
+  "language": {
+    "en": "EN",
+    "es": "ES",
+    "switchAria": "Change language"
+  },
+  "lightbox": {
+    "closeAria": "Close image viewer",
+    "prevAria": "Previous image",
+    "nextAria": "Next image",
+    "dialogAria": "Image viewer"
+  },
+  "whatsapp": {
+    "aria": "Contact us on WhatsApp"
+  },
+  "footer": {
+    "aria": "Site footer",
+    "address": "Address",
+    "addressValue": "Oficina Desarrollo Urbanístico Hacienda El Encantado. Caracas. Venezuela",
+    "email": "Email",
+    "phone": "Phone",
+    "sitemap": "Sitemap",
+    "rights": "© {{year}} Panoramia Capital. All rights reserved.",
+    "instagramAria": "Panoramia Capital on Instagram"
+  },
+  "pages": {
+    "home": {
+      "title": "Home",
+      "description": "Welcome to Panoramia Capital.",
+      "hero": {
+        "title": "Real Estate Investment\nPlatform in Venezuela",
+        "text": "Co-investing alongside partners to develop and operate high-quality real assets in emerging urban markets.",
+        "cta": "Learn more",
+        "slides": {
+          "avilaAlt": "Panoramic view of Caracas and El Ávila",
+          "caracasAlt": "View of Caracas"
+        },
+        "dotsAria": "Hero slides"
+      },
+      "intro": {
+        "text": "Panoramia Capital originates, structures, develops, and operates real estate projects while co‑investing alongside Limited Partners in every investment vehicle. For over four decades, our team has delivered residential, logistics, and mixed‑use developments in complex urban environments."
+      },
+      "skills": {
+        "aria": "Key achievements",
+        "items": {
+          "experience": {
+            "suffix": " Years",
+            "description": "Combined Execution Experience"
+          },
+          "land": {
+            "suffix": "",
+            "description": "Hectares Vast land holding in Caracas to be developed"
+          },
+          "residential": {
+            "suffix": "",
+            "description": "Residential units delivered"
+          },
+          "logistics": {
+            "suffix": "",
+            "description": "Sqm of logistics and commercial assets built"
+          }
+        }
+      },
+      "platform": {
+        "title": "Vertically Integrated Platform",
+        "intro": "Panoramia Capital operates a vertically integrated real estate investment platform. We act as General Partner in project-specific investment vehicles, co-investing alongside Limited Partners and overseeing the full asset lifecycle – from land acquisition through stabilization and exit.",
+        "imageAlt": "Specialty residences development",
+        "points": {
+          "execution": {
+            "title": "Execution Experience",
+            "text": "Four decades of real estate asset delivery in Venezuela"
+          },
+          "coInvestment": {
+            "title": "General Partner Co-Investment",
+            "text": "We invest our own capital in every project, aligning risk and returns with our Limited Partners."
+          },
+          "land": {
+            "title": "Strategic Land Positioning",
+            "text": "Control of prime urban land positions provides sourcing advantage in high-barrier submarkets."
+          }
+        }
+      },
+      "pipeline": {
+        "title": "Active Development Pipeline",
+        "subtitle": "Structured as dedicated investment vehicles (GP/LP)",
+        "description": "Panoramia maintains an active pipeline of residential, logistics, and mixed-use developments in strategic urban corridors. Each project is structured as a dedicated investment vehicle, with Panoramia serving as General Partner and co-investing alongside Limited Partners.",
+        "prevAria": "Previous projects",
+        "nextAria": "Next projects",
+        "dotsAria": "Pipeline projects",
+        "cards": {
+          "logistics": {
+            "title": "Urban Logistics",
+            "subtitle": "Last Mile Warehouses",
+            "imageAlt": "Urban logistics warehouse facility"
+          },
+          "residential": {
+            "title": "Specialty Residential",
+            "subtitle": "Developments addressing unmet demand",
+            "imageAlt": "Specialty residential development"
+          },
+          "land": {
+            "title": "Land Holdings",
+            "subtitle": "Residences",
+            "imageAlt": "Strategic land holdings"
+          },
+          "beach": {
+            "title": "Beach Front Luxury Houses",
+            "subtitle": "Second-Home & Leisure",
+            "imageAlt": "Beach front luxury houses"
+          }
+        }
+      },
+      "selectedTrack": {
+        "title": "Selected Track Record",
+        "description": "Over four decades, Panoramia’s leadership has executed residential, logistics, and urban regeneration projects across Venezuela. Our portfolio reflects consistent delivery of complex real estate assets in challenging operating environments.",
+        "prevAria": "Previous track record",
+        "nextAria": "Next track record",
+        "dotsAria": "Selected track record",
+        "cards": {
+          "residential": {
+            "title": "Land Development to high density residential housing",
+            "subtitle": "Urban infill project addressing unmet housing demand.",
+            "imageAlt": "High density residential housing development"
+          },
+          "logistics": {
+            "title": "Land Development to Last Mile Logistics",
+            "subtitle": "Distribution assets supporting modern supply chains.",
+            "imageAlt": "Last mile logistics development"
+          },
+          "luxury": {
+            "title": "Land Development to luxury residential",
+            "subtitle": "Large-scale mixed-use redevelopment.",
+            "imageAlt": "Luxury residential development"
+          }
+        }
+      },
+      "team": {
+        "title": "Meet Our Team",
+        "subtitle": "Founders and Directors:",
+        "coPrincipals": "Co-Principals",
+        "members": "Members"
+      }
+    },
+    "aboutUs": {
+      "title": "About Us",
+      "description": "About us section.",
+      "seeMore": "See more",
+      "seeLess": "See less",
+      "banner": {
+        "title": "About Us",
+        "text": "Panoramia Capital is a Real Estate Development and Investment company with 40+ years of experience in conceiving and developing urban, residential, logistics warehouses complex and commercial projects. Panoramia experience and track record has been concentrated in Caracas, Venezuela.",
+        "imageAlt": "View of Caracas and El Ávila"
+      },
+      "approach": {
+        "title": "Panoramia Capital",
+        "text1": "Is composed of a group of professionals with vast experience in real estate development, real estate fundraising, designing, construction, and sales. Panoramia Capital has concentrated on integrating all aspects a development requires and focused on working on its own projects. Creating value in the conception, and execution rather than in rendering service to third parties.",
+        "text2": "We invest in the projects we put our minds and work into and partner with local and foreign limited partners in each project. Throughout the past years, Panoramia has acquired and holds a large bank of land, strategically located in Caracas. Panoramia has developed significantly large projects, with significant amounts of investment.",
+        "imageAlt": "Panoramia senior living development",
+        "hint": "Click to enlarge",
+        "openAria": "View larger: {{alt}}"
+      },
+      "competitiveAdvantage": {
+        "title": "Competitive Advantage",
+        "text1": "Panoramia Capital’s competitive edge lies in its vast experience in Venezuela, a comprehensive team of professionals covering every aspect of the project from identifying the opportunity to completion, its significant bank of prime located land in Caracas, and the fact that we act as the General Partner and co-invest significantly in all of our developments.",
+        "text2": "Panoramia Capital and its executive board have together urbanized more than 200 hectares in Caracas, built more than 7,500 apartments for the middle-income segment and some for top-tier buyers, and have developed +70,000 sqm of warehouses and shopping centers among other developments.",
+        "text3": "Panoramia Capital owners and managing directors have a recognized track record locally of initiative, market knowledge and transparency among the Venezuelan real estate and financial sector.",
+        "imageAlt": "Panoramia senior living development exterior",
+        "hint": "Click to enlarge",
+        "openAria": "View larger: {{alt}}"
+      },
+      "meetOurTeam": {
+        "title": "Meet Our Team",
+        "subtitle": "Founders and Directors",
+        "groups": {
+          "coPrincipals": "Co-Principals",
+          "members": "Members"
+        }
+      }
+    },
+
+
+    "trackRecord": {
+      "title": "Track Record",
+      "description": "Track record section.",
+      "banner": {
+        "title": "Track Record",
+        "text": "Four decades of projects conceived, built, and delivered across Caracas.",
+        "imageAlt": "Aerial view of Caracas urban development"
+      },
+      "marketOpportunities": {
+        "title": "Market Opportunities",
+        "text": "Panoramia Capital is constantly evaluating opportunities in different sub-sectors of the real estate industry in Venezuela. Although traditional sub-sectors are currently under significant stress from a business and commercial standpoint, there are niche sub-sectors that present opportunities for different reasons — such as location, modernity in technological updates, changes in consumers’ shopping patterns and habits, as well as those that open up due to changes in the macroeconomic development of Venezuela and its main industries.",
+        "imageAlt": "Modern urban architecture reflecting market opportunity"
+      },
+      "projects": {
+        "residential": {
+          "title": "High Density Residential",
+          "description": "Track record project page ready for content."
+        },
+        "logistics": {
+          "title": "Last Mile Logistics",
+          "description": "Track record project page ready for content."
+        },
+        "luxury": {
+          "title": "Luxury Residential",
+          "description": "Track record project page ready for content."
+        }
+      }
+    },
+
+
+    "landHoldings": {
+      "title": "Land Holdings",
+      "description": "Land holdings section.",
+      "banner": {
+        "title": "Land Development",
+        "text": "Panoramia controls a vast extension of raw terrain located in Caracas and within the expansion area of the city.",
+        "imageAlt": "Land holdings terrain in Caracas"
+      },
+      "competitiveAdvantage": {
+        "title": "Key Competitive Advantage",
+        "text": "Panoramia’s land holdings enable the company to develop its own projects across multiple use categories, controlling the full value chain from raw land to finished development.",
+        "strongText": "This vertical integration reduces dependency on third-party landowners and maximizes returns at every stage of the development cycle.",
+        "cards": {
+          "location": {
+            "title": "City Expansion Zone",
+            "label": "Strategic location"
+          },
+          "uses": {
+            "title": "Multiple Use Categories",
+            "label": "Residential · Commercial · Mixed-use"
+          }
+        }
+      },
+      "useCategories": {
+        "aria": "Use categories",
+        "residential": "Residential",
+        "commercial": "Commercial",
+        "mixedUse": "Mixed-use"
+      },
+      "strategicPositioning": {
+        "eyebrow": "Strategic Positioning",
+        "title": "Caracas Metropolitan Area",
+        "imageAlt": "Satellite view of Greater Caracas with Panoramia land holdings reach overlays",
+        "text1": "Satellite view of the Greater Caracas area, spanning from Catia in the west to Petare in the east — the city’s full urban corridor along the Guaire valley.",
+        "text2": "El Encantado, marked on the map, sits at a key inflection point at the southeastern edge of the metropolitan area, where the city transitions into the expansion zone toward the Tuy valleys.",
+        "text3": "The quarter-circle overlays illustrate the reach of Panoramia’s land holdings:",
+        "cards": {
+          "radius5": {
+            "title": "5 KM RADIUS / 10 min drive",
+            "text": "Immediate development zone — covers the core urban periphery and primary access routes."
+          },
+          "radius10": {
+            "title": "10 KM RADIUS / 20 min drive",
+            "text": "Extended reach — encompasses secondary growth corridors and future expansion territory."
+          },
+          "ownedLand": {
+            "title": "100% Owned Land Within Expansion Zone",
+            "text": "Full value-chain control from raw terrain to developed properties."
+          }
+        }
+      }
+    },
+
+    "currentProjects": {
+      "title": "Current Projects",
+      "description": "Current projects section.",
+      "banner": {
+        "title": "Current Projects",
+        "text": "Consumers’ shopping expectations have changed and they want and expect their needs to be satisfied immediately, effortlessly, and affordably.",
+        "imageAlt": "Last-mile microfulfillment logistics center"
+      },
+      "microFulfillment": {
+        "title": "Micro Fulfillment Centers and Last-Mile Warehousing",
+        "imageAlt": "Micro fulfillment center facility",
+        "seeMore": "See more",
+        "seeLess": "See less",
+        "points": {
+          "consumerShift": {
+            "title": "Consumer Shift",
+            "text": "Modern shoppers demand immediate, effortless, and affordable same-day delivery as a standard requirement."
+          },
+          "disintermediation": {
+            "title": "Disintermediation",
+            "text": "Distributors are increasingly utilizing direct-to-consumer (D2C) models via social networks, bypassing traditional retail to optimize costs and inventory control."
+          },
+          "operationalIntelligence": {
+            "title": "Operational Intelligence",
+            "text": "Integrating Warehouse Management Systems (WMS) and data analytics enables predictive demand modeling, providing a competitive advantage over legacy logistic platforms."
+          },
+          "urbanInfrastructure": {
+            "title": "Urban Infrastructure",
+            "text": "Micro-fulfillment centers located within city limits are essential for executing efficient last-mile delivery and improving customer experience."
+          },
+          "panoramiaDevelopment": {
+            "title": "Panoramia Development",
+            "text": "The company is currently executing a phased, large-scale development of last-mile warehouses at a strategic location in Caracas."
+          }
+        }
+      },
+      "luxuryHouses": {
+        "title": "Luxury Houses in Caracas",
+        "subtitle": "Alto Hatillo Luxury Housing",
+        "points": {
+          "strategicLocation": {
+            "title": "Strategic Location",
+            "text": "50-hectare site in southeast Caracas, offering scenic views, a cooler climate, and proximity to major commercial areas."
+          },
+          "lowDensityLuxury": {
+            "title": "Low-Density Luxury",
+            "text": "Planned for only 100 luxury residences, featuring parcel sizes that exceed historical development standards in Caracas."
+          },
+          "projectTimeline": {
+            "title": "Project Timeline",
+            "text": "Phase 1 construction commenced in October 2024, with a targeted completion date of January 2027."
+          }
+        },
+        "gallery": {
+          "openAria": "View larger: {{alt}}",
+          "image01Alt": "Luxury house in Caracas, exterior view 1",
+          "image02Alt": "Luxury house in Caracas, exterior view 2",
+          "image03Alt": "Luxury house in Caracas, exterior view 3",
+          "image04Alt": "Luxury house in Caracas, exterior view 4"
+        }
+      },
+      "nicheResidences": {
+        "title": "Residences for niche segments",
+        "subtitle": "Residences for Corporate Executives",
+        "points": {
+          "marketGap": {
+            "title": "Market Gap",
+            "text": "Identification of an unserved demand for temporary executive housing for foreign personnel in Caracas."
+          },
+          "assetClass": {
+            "title": "Asset Class",
+            "text": "Development of specialized, amenity-heavy corporate rental buildings, currently a non-existent property type in Venezuela."
+          },
+          "feasibility": {
+            "title": "Feasibility",
+            "text": "Altriun maintains the land and operational capacity to address this projected logistical necessity."
+          }
+        },
+        "gallery": {
+          "openAria": "View larger: {{alt}}",
+          "hint": "Click to enlarge",
+          "image01Alt": "Corporate executive residence, view 1",
+          "image02Alt": "Corporate executive residence, view 2"
+        }
+      },
+      "secondHome": {
+        "title": "Second Home Properties",
+        "subtitle": "Luxury beach houses near Caracas",
+        "meta": "La Sabana · 100 km · 90 min",
+        "text": "Luxury houses in a private gated community in La Sabana, 100 km or 90 minute drive from Caracas. This development is being developed as a shared ownership development, so that each house is owned and maintained by up to four parties.",
+        "gallery": {
+          "openAria": "View larger: {{alt}}",
+          "dotsAria": "Second home gallery",
+          "dotAria": "Go to image {{index}}",
+          "image01Alt": "Exclusive beach-front house near Caracas, view 1",
+          "image02Alt": "Exclusive beach-front house near Caracas, view 2",
+          "image03Alt": "Exclusive beach-front house near Caracas, view 3",
+          "image04Alt": "Exclusive beach-front house near Caracas, view 4",
+          "image05Alt": "Exclusive beach-front house near Caracas, view 5",
+          "image06Alt": "Exclusive beach-front house near Caracas, view 6",
+          "image07Alt": "Exclusive beach-front house near Caracas, view 7"
+        }
+      },
+      "estanciasLosBufalos": {
+        "title": "Estancias Los Bufalos",
+        "hint": "Click to enlarge",
+        "openAria": "View larger: {{alt}}",
+        "imageAlt": "Estancias Los Bufalos equestrian community development",
+        "meta": {
+          "parcels": "70+ parcels",
+          "plotSize": "~5,000 sqm",
+          "club": "Equestrian club"
+        },
+        "text1": "Estancias Los Bufalos is an urban development designed as an equestrian community especially for people who want to have a country house in the city and to those that practice horseback riding and team penning.",
+        "text2": "It consists of 70+ parcels of land of approximately 5,000 sqm located in a beautiful hill out looking to the south of Caracas. All circled with horse riding ways and a fully equipped equestrian club with courts, stables, and further facilities."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contact section.",
+      "intro": "Reach Panoramia Capital for development, investment, or partnership inquiries.",
+      "info": {
+        "email": "Email",
+        "phone": "Phone",
+        "address": "Address",
+        "addressValue": "Oficina Desarrollo Urbanístico Hacienda El Encantado. Caracas. Venezuela"
+      },
+      "form": {
+        "title": "Send a message",
+        "name": "Name / Company",
+        "namePlaceholder": "Your name or company",
+        "email": "Email",
+        "emailPlaceholder": "you@example.com",
+        "message": "Message",
+        "messagePlaceholder": "How can we help?",
+        "submit": "Send",
+        "sent": "Your email client should open with the message ready to send.",
+        "mailSubject": "Contact from {{name}}"
+      },
+      "mapTitle": "El Encantado Ventas location map"
+    }
+  }
+}
