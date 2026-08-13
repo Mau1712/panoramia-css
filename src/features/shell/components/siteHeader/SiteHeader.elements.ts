@@ -18,7 +18,14 @@ export const SiteHeaderElement = styled.header`
   z-index: ${({ theme }) => theme.zIndex.header};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}) {
-    padding: ${({ theme }) => `${theme.spacing(2)} ${theme.spacing(2)}`};
+    padding: ${({ theme }) =>
+      `${theme.spacing(2)} max(${theme.spacing(3)}, env(safe-area-inset-right, 0px)) ${theme.spacing(2)} max(${theme.spacing(3)}, env(safe-area-inset-left, 0px))`};
+    gap: ${({ theme }) => theme.spacing(2)};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: ${({ theme }) =>
+      `${theme.spacing(2)} max(${theme.spacing(2.5)}, env(safe-area-inset-right, 0px)) ${theme.spacing(2)} max(${theme.spacing(2.5)}, env(safe-area-inset-left, 0px))`};
   }
 `;
 
@@ -44,9 +51,10 @@ export const HeaderActionsElement = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing(4)};
+  flex-shrink: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}) {
-    gap: ${({ theme }) => theme.spacing(2)};
+    gap: ${({ theme }) => theme.spacing(1.5)};
   }
 `;
 
@@ -132,7 +140,6 @@ export const MenuButtonElement = styled.button`
     display: inline-flex;
   }
 `;
-
 export const MobileMenuHeaderElement = styled.div`
   display: flex;
   align-items: center;
