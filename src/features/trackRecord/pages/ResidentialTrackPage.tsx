@@ -1,24 +1,22 @@
-import { useTranslation } from "react-i18next";
-import {
-  TrackRecordDetailPageElement,
-  TrackRecordDetailPlaceholderElement,
-  TrackRecordDetailTextElement,
-  TrackRecordDetailTitleElement,
-} from "./TrackRecordDetailPage.elements";
+import { ResidentialFinalResultSection } from "../components/residentialFinalResultSection/ResidentialFinalResultSection";
+import { ResidentialPartnershipsSection } from "../components/residentialPartnershipsSection/ResidentialPartnershipsSection";
+import { ResidentialPhaseFourSection } from "../components/residentialPhaseFourSection/ResidentialPhaseFourSection";
+import { ResidentialPhaseOneSection } from "../components/residentialPhaseOneSection/ResidentialPhaseOneSection";
+import { ResidentialPhaseThreeSection } from "../components/residentialPhaseThreeSection/ResidentialPhaseThreeSection";
+import { ResidentialPhaseTwoSection } from "../components/residentialPhaseTwoSection/ResidentialPhaseTwoSection";
+import { ResidentialTrackBanner } from "../components/residentialTrackBanner/ResidentialTrackBanner";
+import { TrackRecordDetailPageElement } from "./TrackRecordDetailPage.elements";
 
 export const ResidentialTrackPage = () => {
-  const { t } = useTranslation("common");
-
   return (
     <TrackRecordDetailPageElement>
-      <TrackRecordDetailPlaceholderElement>
-        <TrackRecordDetailTitleElement>
-          {t("pages.trackRecord.projects.residential.title")}
-        </TrackRecordDetailTitleElement>
-        <TrackRecordDetailTextElement>
-          {t("pages.trackRecord.projects.residential.description")}
-        </TrackRecordDetailTextElement>
-      </TrackRecordDetailPlaceholderElement>
+      <ResidentialTrackBanner />
+      <ResidentialPhaseOneSection />
+      <ResidentialPhaseTwoSection />
+      <ResidentialPhaseThreeSection />
+      <ResidentialPhaseFourSection />
+      <ResidentialPartnershipsSection />
+      <ResidentialFinalResultSection />
     </TrackRecordDetailPageElement>
   );
 };

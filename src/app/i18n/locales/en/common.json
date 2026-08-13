@@ -211,8 +211,89 @@
       "projects": {
         "residential": {
           "title": "High Density Residential",
-          "description": "Track record project page ready for content."
+          "description": "Track record project page ready for content.",
+          "banner": {
+            "title": "Land Development to high density residential housing",
+            "text": "Adding value in each step of the urbanization process",
+            "imageAlt": "High-density urban development in a mountain valley",
+            "points": {
+              "acquisition": "Acquisition of raw land",
+              "zoning": "Zoning and permits",
+              "services": "Construction of services and roads",
+              "simultaneous": "Simultaneously building high density housing, shortening overall development time by 50%",
+              "partnership": "Partnership with strong local high density promoters and construction companies"
+            }
+          },
+          "phaseOne": {
+            "eyebrow": "Phase 1 — Master Plan & Land Acquisition",
+            "title": "Urban Development El Encantado",
+            "text": "300 hectares of raw land acquired in Caracas. Integrated master plan designed for mixed-use: high density residential (6,000 apartments), low density parcels, commercial, logistics, parks, healthcare and sports facilities.",
+            "imageAlt": "El Encantado master plan and land acquisition phase",
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}"
+          },
+          "phaseTwo": {
+            "eyebrow": "Phase 2 — Zoning, Permits & Earthworks",
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}",
+            "items": {
+              "before": {
+                "caption": "Raw land before development — natural terrain, no infrastructure or services"
+              },
+              "after": {
+                "caption": "Zoning approved, earthworks and road grading underway — first infrastructure being introduced"
+              }
+            }
+          },
+          "phaseThree": {
+            "eyebrow": "Phase 3 — Services, Roads & Construction Begins",
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}",
+            "items": {
+              "roads": {
+                "caption": "2010 — Roads and utility services under construction, land grading completed across the development area"
+              },
+              "construction": {
+                "caption": "High density residential construction begins simultaneously with urbanization works — shortening overall development time by 50%"
+              }
+            }
+          },
+          "phaseFour": {
+            "eyebrow": "Phase 4 — Apartments Completed & Delivered",
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}",
+            "items": {
+              "towers": {
+                "caption": "Finished apartment towers — high density residential housing delivered to market"
+              },
+              "community": {
+                "caption": "Completed development — from raw land to fully urbanized residential community with all services and amenities"
+              }
+            }
+          },
+          "partnerships": {
+            "title": "Partnerships — Local High Density Promoters & Construction Co.",
+            "text": "5 High Density Residential Developments totaling more than 5,000 apartments under simultaneous construction",
+            "imageAlt": "High density residential towers delivered with local promoters and construction partners",
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}",
+            "stats": {
+              "developmentsValue": "5",
+              "developmentsLabel": "High Density Residential Developments",
+              "apartmentsValue": "5,000+",
+              "apartmentsLabel": "Apartments under simultaneous construction"
+            }
+          },
+          "finalResult": {
+            "title": "Final Result — Fully Developed Residential Community",
+            "text": "El Encantado — completed high density residential towers with full urban infrastructure, roads, services, commercial areas, parks and recreational facilities",
+            "caption": "Complete transformation: raw land to thriving residential community — demonstrating end-to-end value creation through integrated land development and high density housing delivery",
+            "imageAlt": "El Encantado fully developed high density residential community",
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}"
+          }
         },
+
         "logistics": {
           "title": "Last Mile Logistics",
           "description": "Track record project page ready for content."

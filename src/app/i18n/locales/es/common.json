@@ -211,8 +211,89 @@
       "projects": {
         "residential": {
           "title": "Residencial de alta densidad",
-          "description": "Página de proyecto de trayectoria lista para contenido."
+          "description": "Página de proyecto de trayectoria lista para contenido.",
+          "banner": {
+            "title": "Desarrollo de tierra a vivienda residencial de alta densidad",
+            "text": "Agregando valor en cada paso del proceso de urbanización",
+            "imageAlt": "Desarrollo urbano de alta densidad en un valle montañoso",
+            "points": {
+              "acquisition": "Adquisición de tierra en bruto",
+              "zoning": "Zonificación y permisos",
+              "services": "Construcción de servicios y vialidad",
+              "simultaneous": "Construcción simultánea de vivienda de alta densidad, reduciendo el tiempo total de desarrollo en un 50%",
+              "partnership": "Alianza con promotores y constructoras locales fuertes en alta densidad"
+            }
+          },
+          "phaseOne": {
+            "eyebrow": "Fase 1 — Master plan y adquisición de tierra",
+            "title": "Desarrollo urbano El Encantado",
+            "text": "300 hectáreas de tierra en bruto adquiridas en Caracas. Master plan integrado diseñado para uso mixto: residencial de alta densidad (6,000 apartamentos), parcelas de baja densidad, comercial, logística, parques, salud e instalaciones deportivas.",
+            "imageAlt": "Master plan y fase de adquisición de tierra de El Encantado",
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}"
+          },
+          "phaseTwo": {
+            "eyebrow": "Fase 2 — Zonificación, permisos y movimiento de tierra",
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}",
+            "items": {
+              "before": {
+                "caption": "Tierra en bruto antes del desarrollo — terreno natural, sin infraestructura ni servicios"
+              },
+              "after": {
+                "caption": "Zonificación aprobada, movimiento de tierra y nivelación de vías en curso — primera infraestructura en introducción"
+              }
+            }
+          },
+          "phaseThree": {
+            "eyebrow": "Fase 3 — Servicios, vías y comienzo de construcción",
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}",
+            "items": {
+              "roads": {
+                "caption": "2010 — Vías y servicios públicos en construcción, nivelación de terreno completada en el área de desarrollo"
+              },
+              "construction": {
+                "caption": "La construcción residencial de alta densidad comienza simultáneamente con las obras de urbanización — acortando el tiempo total de desarrollo en un 50%"
+              }
+            }
+          },
+          "phaseFour": {
+            "eyebrow": "Fase 4 — Apartamentos completados y entregados",
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}",
+            "items": {
+              "towers": {
+                "caption": "Torres de apartamentos terminadas — vivienda residencial de alta densidad entregada al mercado"
+              },
+              "community": {
+                "caption": "Desarrollo completado — de tierra en bruto a comunidad residencial plenamente urbanizada, con todos los servicios y amenidades"
+              }
+            }
+          },
+          "partnerships": {
+            "title": "Alianzas — Promotores locales de alta densidad y constructoras",
+            "text": "5 desarrollos residenciales de alta densidad, con más de 5.000 apartamentos en construcción simultánea",
+            "imageAlt": "Torres residenciales de alta densidad entregadas con promotores y constructoras locales",
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}",
+            "stats": {
+              "developmentsValue": "5",
+              "developmentsLabel": "Desarrollos residenciales de alta densidad",
+              "apartmentsValue": "5.000+",
+              "apartmentsLabel": "Apartamentos en construcción simultánea"
+            }
+          },
+          "finalResult": {
+            "title": "Resultado final — Comunidad residencial plenamente desarrollada",
+            "text": "El Encantado — torres residenciales de alta densidad completadas, con infraestructura urbana plena: vías, servicios, áreas comerciales, parques e instalaciones recreativas",
+            "caption": "Transformación completa: de tierra en bruto a una comunidad residencial próspera — demostrando creación de valor de extremo a extremo mediante desarrollo integral de tierra y entrega de vivienda de alta densidad",
+            "imageAlt": "El Encantado, comunidad residencial de alta densidad plenamente desarrollada",
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}"
+          }
         },
+
         "logistics": {
           "title": "Logística de última milla",
           "description": "Página de proyecto de trayectoria lista para contenido."
