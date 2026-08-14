@@ -18,8 +18,8 @@ export const HeroBannerElement = styled.section`
   display: flex;
   align-items: center;
   width: 100%;
-  height: min(56dvh, ${({ theme }) => theme.spacing(70)});
-  min-height: min(56dvh, ${({ theme }) => theme.spacing(70)});
+  height: 560px;
+  min-height: 560px;
   overflow: hidden;
   background: ${({ theme }) => theme.color.neutral[900]};
 `;

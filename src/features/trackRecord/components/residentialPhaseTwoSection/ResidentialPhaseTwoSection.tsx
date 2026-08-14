@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import phaseTwoImageA from "@assets/trackRecord/residential/LAND-DEVELOPMENT-TO-HIGH-DENSITY-RESIDENTIAL-HOUSING-PHASE-2.webp";
-import phaseTwoImageB from "@assets/trackRecord/residential/LAND-DEVELOPMENT-TO-HIGH-DENSITY-RESIDENTIAL-HOUSING-PHASE-2a.webp";
+import phaseTwoImageA from "@assets/trackRecord/residential/LAND-DEVELOPMENT-TO-HIGH-DENSITY-RESIDENTIAL-HOUSING-PHASE-2.png";
+import phaseTwoImageB from "@assets/trackRecord/residential/LAND-DEVELOPMENT-TO-HIGH-DENSITY-RESIDENTIAL-HOUSING-PHASE-2a.png";
 import { residentialPhaseTwoItems } from "@features/trackRecord/data";
 import { useInView } from "@features/trackRecord/hooks/useInView";
 import { ImageLightbox } from "@shared/ui/overlays/imageLightbox/ImageLightbox";

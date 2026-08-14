@@ -296,7 +296,149 @@
 
         "logistics": {
           "title": "Logística de última milla",
-          "description": "Página de proyecto de trayectoria lista para contenido."
+          "description": "Página de proyecto de trayectoria lista para contenido.",
+          "banner": {
+            "title": "Desarrollo de tierra a logística de última milla",
+            "meta": "Complejo de almacenes logísticos | Este de Caracas | 2008",
+            "cycleLabel": "Ejecución de ciclo completo",
+            "imageAlt": "Complejo de almacenes logísticos en el este de Caracas",
+            "cycleSteps": {
+              "acquisition": "Adquisición de tierra",
+              "design": "Diseño",
+              "permits": "Permisos",
+              "construction": "Construcción",
+              "sales": "Ventas"
+            }
+          },
+          "overview": {
+            "title": "Resumen del proyecto",
+            "subtitle": "Complejo logístico Este de Caracas",
+            "text": "Desarrollo de ciclo completo de un terreno industrial estratégicamente ubicado, a 5 minutos de la principal autopista del país y en el corazón del mayor mercado de consumo de Venezuela: el Este de Caracas.",
+            "imageAlt": "Estructuras metálicas de almacenes en construcción en el complejo logístico del Este de Caracas",
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}",
+            "facts": {
+              "year": {
+                "label": "Año",
+                "value": "2008"
+              },
+              "location": {
+                "label": "Ubicación",
+                "value": "Este de Caracas"
+              },
+              "type": {
+                "label": "Tipo",
+                "value": "Fulfillment de última milla"
+              },
+              "access": {
+                "label": "Acceso",
+                "value": "5 min a la autopista principal"
+              }
+            }
+          },
+          "valueProcess": {
+            "title": "Proceso de creación de valor — Ejecución de ciclo completo",
+            "tagline": "De tierra en bruto a centros de fulfillment de última milla plenamente operativos",
+            "imageAlt": "Complejo de almacenes logísticos de última milla terminado en el Este de Caracas",
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}",
+            "steps": {
+              "acquisition": {
+                "index": "01",
+                "label": "Adquisición de tierra"
+              },
+              "use": {
+                "index": "02",
+                "label": "Determinación de uso"
+              },
+              "design": {
+                "index": "03",
+                "label": "Diseño arquitectónico"
+              },
+              "permits": {
+                "index": "04",
+                "label": "Permisos y aprobaciones"
+              },
+              "construction": {
+                "index": "05",
+                "label": "Construcción"
+              },
+              "sales": {
+                "index": "06",
+                "label": "Ventas y disposición"
+              }
+            }
+          },
+          "strategicLocation": {
+            "title": "Ubicación estratégica",
+            "subtitle": "Fulfillment de última milla en el epicentro del consumo",
+            "imageAlt": "Complejo de almacenes logísticos de última milla en el Este de Caracas",
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}",
+            "items": {
+              "access": {
+                "index": "01",
+                "title": "Acceso vial premium",
+                "text": "A 5 minutos de la principal autopista del país, con conectividad directa a toda el Área Metropolitana"
+              },
+              "market": {
+                "index": "02",
+                "title": "Mayor mercado de consumo",
+                "text": "Ubicado en el Este de Caracas, la zona con mayor poder adquisitivo y densidad comercial del país"
+              },
+              "lastMile": {
+                "index": "03",
+                "title": "Logística de última milla",
+                "text": "Posición ideal para centros de fulfillment orientados a entregas same-day al consumidor final"
+              },
+              "warehouses": {
+                "index": "04",
+                "title": "Múltiples almacenes",
+                "text": "Diseño modular que permite operaciones logísticas independientes o integradas para distintos operadores"
+              }
+            }
+          },
+          "finishedProduct": {
+            "title": "Producto terminado",
+            "subtitle": "Almacenes entregados y vendidos",
+            "text": "Cada almacén fue diseñado, construido y comercializado como una unidad de fulfillment logístico independiente, optimizando retornos en cada etapa del proceso.",
+            "imageAlt": "Almacenes logísticos de última milla terminados, entregados y vendidos",
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}",
+            "items": {
+              "modular": "Almacenes modulares con altura industrial",
+              "yard": "Patio de maniobras para vehículos de carga",
+              "access": "Acceso independiente por unidad",
+              "infrastructure": "Infraestructura eléctrica y sanitaria completa",
+              "permits": "Documentación legal y permisos al día",
+              "sold": "Venta exitosa de todas las unidades"
+            }
+          },
+          "provenExecution": {
+            "title": "Proceso de creación de valor — Ejecución de ciclo completo",
+            "subtitle": "Capacidad de ejecución comprobada — De tierra en bruto a activo productivo",
+            "imageAlt": "Complejo logístico de última milla terminado como activo productivo",
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}",
+            "stats": {
+              "year": {
+                "value": "2008",
+                "label": "Año de ejecución"
+              },
+              "sold": {
+                "value": "100%",
+                "label": "Unidades vendidas"
+              },
+              "highway": {
+                "value": "5 min",
+                "label": "Autopista principal"
+              },
+              "type": {
+                "value": "Última milla",
+                "label": "Logística de fulfillment"
+              }
+            }
+          }
         },
         "luxury": {
           "title": "Residencial de lujo",

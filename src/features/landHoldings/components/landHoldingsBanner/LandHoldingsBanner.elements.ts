@@ -17,8 +17,8 @@ export const LandHoldingsBannerElement = styled.section`
   display: flex;
   align-items: center;
   width: 100%;
-  height: min(46dvh, ${({ theme }) => theme.spacing(60)});
-  min-height: min(46dvh, ${({ theme }) => theme.spacing(60)});
+  height: 560px;
+  min-height: 560px;
   overflow: hidden;
   background: ${({ theme }) => theme.color.neutral[900]};
 `;

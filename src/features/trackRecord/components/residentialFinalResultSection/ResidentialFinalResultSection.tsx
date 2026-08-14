@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import finalResultImage from "@assets/trackRecord/residential/LAND-DEVELOPMENT-TO-HIGH-DENSITY-RESIDENTIAL-HOUSING-PHASE-final.webp";
+import finalResultImage from "@assets/trackRecord/residential/LAND-DEVELOPMENT-TO-HIGH-DENSITY-RESIDENTIAL-HOUSING-PHASE-final.png";
 import { useInView } from "@features/trackRecord/hooks/useInView";
 import { ImageLightbox } from "@shared/ui/overlays/imageLightbox/ImageLightbox";
 import * as S from "./ResidentialFinalResultSection.elements";

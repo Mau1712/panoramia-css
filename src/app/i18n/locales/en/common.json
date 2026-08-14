@@ -296,7 +296,149 @@
 
         "logistics": {
           "title": "Last Mile Logistics",
-          "description": "Track record project page ready for content."
+          "description": "Track record project page ready for content.",
+          "banner": {
+            "title": "Land Development to Last Mile Logistics",
+            "meta": "Logistics Warehouse Complex | East Caracas | 2008",
+            "cycleLabel": "Full Cycle Execution",
+            "imageAlt": "Logistics warehouse complex in East Caracas",
+            "cycleSteps": {
+              "acquisition": "Land Acquisition",
+              "design": "Design",
+              "permits": "Permits",
+              "construction": "Construction",
+              "sales": "Sales"
+            }
+          },
+          "overview": {
+            "title": "Project Overview",
+            "subtitle": "Logistics Complex East Caracas",
+            "text": "Full-cycle development of a strategically located industrial land parcel, 5 minutes from the country’s main highway and in the heart of Venezuela’s largest consumer market: East Caracas.",
+            "imageAlt": "Metal warehouse structures under construction at the East Caracas logistics complex",
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}",
+            "facts": {
+              "year": {
+                "label": "Year",
+                "value": "2008"
+              },
+              "location": {
+                "label": "Location",
+                "value": "East Caracas"
+              },
+              "type": {
+                "label": "Type",
+                "value": "Last Mile Fulfillment"
+              },
+              "access": {
+                "label": "Access",
+                "value": "5 min to main highway"
+              }
+            }
+          },
+          "valueProcess": {
+            "title": "Value Creation Process — Full Cycle Execution",
+            "tagline": "From raw land to fully operational last mile fulfillment centers",
+            "imageAlt": "Completed last mile logistics warehouse complex in East Caracas",
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}",
+            "steps": {
+              "acquisition": {
+                "index": "01",
+                "label": "Land Acquisition"
+              },
+              "use": {
+                "index": "02",
+                "label": "Use Determination"
+              },
+              "design": {
+                "index": "03",
+                "label": "Architectural Design"
+              },
+              "permits": {
+                "index": "04",
+                "label": "Permits & Approvals"
+              },
+              "construction": {
+                "index": "05",
+                "label": "Construction"
+              },
+              "sales": {
+                "index": "06",
+                "label": "Sales & Disposition"
+              }
+            }
+          },
+          "strategicLocation": {
+            "title": "Strategic Location",
+            "subtitle": "Last Mile Fulfillment in the Consumer Epicenter",
+            "imageAlt": "Last mile logistics warehouse complex in East Caracas",
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}",
+            "items": {
+              "access": {
+                "index": "01",
+                "title": "Premium Road Access",
+                "text": "5 minutes from the country’s main highway, direct connectivity to the entire Metropolitan Area"
+              },
+              "market": {
+                "index": "02",
+                "title": "Largest Consumer Market",
+                "text": "Located in East Caracas, the zone with the highest purchasing power and commercial density in the country"
+              },
+              "lastMile": {
+                "index": "03",
+                "title": "Last Mile Logistics",
+                "text": "Ideal position for fulfillment centers serving same-day deliveries to the end consumer"
+              },
+              "warehouses": {
+                "index": "04",
+                "title": "Multiple Warehouses",
+                "text": "Modular design allowing independent or integrated logistics operations for different operators"
+              }
+            }
+          },
+          "finishedProduct": {
+            "title": "Finished Product",
+            "subtitle": "Warehouses Delivered & Sold",
+            "text": "Each warehouse was designed, built and marketed as an independent logistics fulfillment unit, optimizing returns at every stage of the process.",
+            "imageAlt": "Finished last mile logistics warehouses delivered and sold",
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}",
+            "items": {
+              "modular": "Modular warehouses with industrial height",
+              "yard": "Truck maneuvering yard for cargo vehicles",
+              "access": "Independent access per unit",
+              "infrastructure": "Full electrical and sanitary infrastructure",
+              "permits": "All legal documentation and permits current",
+              "sold": "Successful sale of all units"
+            }
+          },
+          "provenExecution": {
+            "title": "Value Creation Process — Full Cycle Execution",
+            "subtitle": "Proven Execution Capability — From Raw Land to Productive Asset",
+            "imageAlt": "Completed last mile logistics complex as a productive asset",
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}",
+            "stats": {
+              "year": {
+                "value": "2008",
+                "label": "Year of Execution"
+              },
+              "sold": {
+                "value": "100%",
+                "label": "Units Sold"
+              },
+              "highway": {
+                "value": "5 min",
+                "label": "Main Highway"
+              },
+              "type": {
+                "value": "Last Mile",
+                "label": "Fulfillment Logistics"
+              }
+            }
+          }
         },
         "luxury": {
           "title": "Luxury Residential",

@@ -12,7 +12,7 @@ const fadeUp = keyframes`
   }
 `;
 
-export const ResidentialTrackBannerElement = styled.section`
+export const LogisticsTrackBannerElement = styled.section`
   position: relative;
   display: flex;
   align-items: center;
@@ -23,7 +23,7 @@ export const ResidentialTrackBannerElement = styled.section`
   background: ${({ theme }) => theme.color.neutral[900]};
 `;
 
-export const ResidentialTrackBannerMediaElement = styled.img`
+export const LogisticsTrackBannerMediaElement = styled.img`
   position: absolute;
   inset: 0;
   width: 100%;
@@ -33,7 +33,7 @@ export const ResidentialTrackBannerMediaElement = styled.img`
   pointer-events: none;
 `;
 
-export const ResidentialTrackBannerOverlayElement = styled.div`
+export const LogisticsTrackBannerOverlayElement = styled.div`
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -47,7 +47,7 @@ export const ResidentialTrackBannerOverlayElement = styled.div`
     linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 55%);
 `;
 
-export const ResidentialTrackBannerInnerElement = styled(SectionContainer)`
+export const LogisticsTrackBannerInnerElement = styled(SectionContainer)`
   position: relative;
   z-index: 2;
   display: flex;
@@ -56,13 +56,13 @@ export const ResidentialTrackBannerInnerElement = styled(SectionContainer)`
   min-height: inherit;
 `;
 
-export const ResidentialTrackBannerContentElement = styled.div`
+export const LogisticsTrackBannerContentElement = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: ${({ theme }) => theme.spacing(2.5)};
   width: 100%;
-  max-width: 42rem;
+  max-width: 44rem;
   padding: ${({ theme }) => `${theme.spacing(6)} ${theme.spacing(5)}`};
   animation: ${fadeUp} ${({ theme }) => theme.transitions.slow} both;
 
@@ -80,8 +80,8 @@ export const ResidentialTrackBannerContentElement = styled.div`
   }
 `;
 
-export const ResidentialTrackBannerTitleElement = styled.h1`
-  max-width: 22ch;
+export const LogisticsTrackBannerTitleElement = styled.h1`
+  max-width: 18ch;
   color: ${({ theme }) => theme.color.background.primary};
   font-size: ${({ theme }) => theme.typography.fontSizes.xHeading};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
@@ -107,48 +107,68 @@ export const ResidentialTrackBannerTitleElement = styled.h1`
   }
 `;
 
-export const ResidentialTrackBannerListElement = styled.ul`
+export const LogisticsTrackBannerMetaElement = styled.p`
+  margin: 0;
+  color: ${({ theme }) => theme.color.background.primary};
+  font-size: ${({ theme }) => theme.typography.fontSizes.xLarge};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  opacity: 0.92;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: ${({ theme }) => theme.typography.fontSizes.large};
+  }
+`;
+
+export const LogisticsTrackBannerCycleElement = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing(1)};
+  gap: ${({ theme }) => theme.spacing(1.25)};
   width: 100%;
+  max-width: 40rem;
+  margin-top: ${({ theme }) => theme.spacing(0.5)};
+`;
+
+export const LogisticsTrackBannerCycleLabelElement = styled.p`
+  margin: 0;
+  color: ${({ theme }) => theme.color.background.primary};
+  font-size: ${({ theme }) => theme.typography.fontSizes.normal};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.semiBold};
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  opacity: 0.88;
+`;
+
+export const LogisticsTrackBannerCycleStepsElement = styled.ol`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: ${({ theme }) => `${theme.spacing(1)} ${theme.spacing(0.75)}`};
+  width: 100%;
+  margin: 0;
+  padding: 0;
   list-style: none;
 `;
 
-export const ResidentialTrackBannerListItemElement = styled.li`
-  position: relative;
-  padding-left: ${({ theme }) => theme.spacing(2.5)};
+export const LogisticsTrackBannerCycleStepElement = styled.li`
+  display: inline-flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing(0.75)};
   color: ${({ theme }) => theme.color.background.primary};
   font-size: ${({ theme }) => theme.typography.fontSizes.large};
-  font-weight: ${({ theme }) => theme.typography.fontWeight.normal};
-  line-height: 1.45;
-  opacity: 0.94;
+  font-weight: ${({ theme }) => theme.typography.fontWeight.semiBold};
+  line-height: 1.35;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0.65em;
-    left: 0;
-    width: 6px;
-    height: 6px;
-    border-radius: ${({ theme }) => theme.radii.circle};
-    background: currentColor;
+  &:not(:last-child)::after {
+    content: "→";
+    margin-left: ${({ theme }) => theme.spacing(0.75)};
+    font-weight: ${({ theme }) => theme.typography.fontWeight.normal};
+    opacity: 0.7;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: ${({ theme }) => theme.typography.fontSizes.normal};
-  }
-`;
-
-export const ResidentialTrackBannerTextElement = styled.p`
-  max-width: 34ch;
-  margin-top: ${({ theme }) => theme.spacing(0.5)};
-  color: ${({ theme }) => theme.color.background.primary};
-  font-size: ${({ theme }) => theme.typography.fontSizes.xLarge};
-  font-weight: ${({ theme }) => theme.typography.fontWeight.semiBold};
-  line-height: 1.4;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: ${({ theme }) => theme.typography.fontSizes.large};
   }
 `;

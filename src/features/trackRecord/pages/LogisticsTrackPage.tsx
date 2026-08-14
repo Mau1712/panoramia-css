@@ -1,24 +1,20 @@
-import { useTranslation } from "react-i18next";
-import {
-  TrackRecordDetailPageElement,
-  TrackRecordDetailPlaceholderElement,
-  TrackRecordDetailTextElement,
-  TrackRecordDetailTitleElement,
-} from "./TrackRecordDetailPage.elements";
+import { LogisticsFinishedProductSection } from "../components/logisticsFinishedProductSection/LogisticsFinishedProductSection";
+import { LogisticsProjectOverviewSection } from "../components/logisticsProjectOverviewSection/LogisticsProjectOverviewSection";
+import { LogisticsProvenExecutionSection } from "../components/logisticsProvenExecutionSection/LogisticsProvenExecutionSection";
+import { LogisticsStrategicLocationSection } from "../components/logisticsStrategicLocationSection/LogisticsStrategicLocationSection";
+import { LogisticsTrackBanner } from "../components/logisticsTrackBanner/LogisticsTrackBanner";
+import { LogisticsValueProcessSection } from "../components/logisticsValueProcessSection/LogisticsValueProcessSection";
+import { TrackRecordDetailPageElement } from "./TrackRecordDetailPage.elements";
 
 export const LogisticsTrackPage = () => {
-  const { t } = useTranslation("common");
-
   return (
     <TrackRecordDetailPageElement>
-      <TrackRecordDetailPlaceholderElement>
-        <TrackRecordDetailTitleElement>
-          {t("pages.trackRecord.projects.logistics.title")}
-        </TrackRecordDetailTitleElement>
-        <TrackRecordDetailTextElement>
-          {t("pages.trackRecord.projects.logistics.description")}
-        </TrackRecordDetailTextElement>
-      </TrackRecordDetailPlaceholderElement>
+      <LogisticsTrackBanner />
+      <LogisticsProjectOverviewSection />
+      <LogisticsValueProcessSection />
+      <LogisticsStrategicLocationSection />
+      <LogisticsFinishedProductSection />
+      <LogisticsProvenExecutionSection />
     </TrackRecordDetailPageElement>
   );
 };
