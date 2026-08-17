@@ -12,6 +12,45 @@ const fadeUp = keyframes`
   }
 `;
 
+const softGrid = (fadeColor: string, lineColor: string) => css`
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        to right,
+        ${fadeColor} 0%,
+        transparent 16%,
+        transparent 84%,
+        ${fadeColor} 100%
+      ),
+      linear-gradient(
+        to bottom,
+        ${fadeColor} 0%,
+        transparent 18%,
+        transparent 82%,
+        ${fadeColor} 100%
+      ),
+      repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent 55px,
+        ${lineColor} 55px,
+        ${lineColor} 56px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 55px,
+        ${lineColor} 55px,
+        ${lineColor} 56px
+      );
+    opacity: 0.42;
+  }
+`;
+
 interface LuxuryJourneyToneProps {
   $tone: "primary" | "secondary";
 }
@@ -21,14 +60,27 @@ export const LuxuryJourneySectionElement = styled.section`
 `;
 
 export const LuxuryJourneyStepElement = styled.article<LuxuryJourneyToneProps>`
+  position: relative;
   width: 100%;
+  overflow: hidden;
   background: ${({ theme, $tone }) =>
     $tone === "primary"
       ? theme.color.background.primary
       : theme.color.background.secondary};
+
+  ${({ theme, $tone }) =>
+    softGrid(
+      $tone === "primary"
+        ? theme.color.background.primary
+        : theme.color.background.secondary,
+      theme.color.border.soft,
+    )}
 `;
 
-export const LuxuryJourneyInnerElement = styled(SectionContainer)``;
+export const LuxuryJourneyInnerElement = styled(SectionContainer)`
+  position: relative;
+  z-index: 1;
+`;
 
 interface LuxuryJourneyRevealProps {
   $visible: boolean;
@@ -40,7 +92,7 @@ export const LuxuryJourneyStackElement = styled.div<LuxuryJourneyRevealProps>`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing(3)};
   width: 100%;
-  padding-block: ${({ theme }) => theme.spacing(8)};
+  padding-block: ${({ theme }) => theme.spacing(9)};
   padding-inline: ${({ theme }) => theme.spacing(5)};
   opacity: 0;
 
@@ -67,15 +119,33 @@ export const LuxuryJourneyStackElement = styled.div<LuxuryJourneyRevealProps>`
   }
 `;
 
+export const LuxuryJourneyHeadingElement = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: ${({ theme }) => theme.spacing(1.25)};
+  max-width: 42rem;
+`;
+
+export const LuxuryJourneyEyebrowElement = styled.p`
+  margin: 0;
+  color: ${({ theme }) => theme.color.text.secondary};
+  font-size: ${({ theme }) => theme.typography.fontSizes.small};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.semiBold};
+  letter-spacing: 0.16em;
+  line-height: 1.3;
+  text-transform: uppercase;
+`;
+
 export const LuxuryJourneyTitleElement = styled.h2`
   width: fit-content;
   max-width: 100%;
+  margin: 0;
   color: ${({ theme }) => theme.color.text.primary};
   font-size: ${({ theme }) => theme.typography.fontSizes.xxxLarge};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 
   &::after {
     content: "";
@@ -106,6 +176,8 @@ export const LuxuryJourneyMediaElement = styled.div`
   overflow: hidden;
   min-height: clamp(16rem, 44vw, 32rem);
   background: ${({ theme }) => theme.color.background.secondary};
+  border: 1px solid ${({ theme }) => theme.color.border.primary};
+  box-shadow: inset 0 0 0 1px ${({ theme }) => theme.color.background.primary};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     min-height: clamp(14rem, 54vw, 22rem);
@@ -168,6 +240,8 @@ export const LuxuryJourneyMediaHintElement = styled.span`
 export const LuxuryJourneyTextElement = styled.p`
   margin: 0;
   max-width: 40rem;
+  padding-left: ${({ theme }) => theme.spacing(2)};
+  border-left: 2px solid ${({ theme }) => theme.color.text.primary};
   color: ${({ theme }) => theme.color.text.secondary};
   font-size: ${({ theme }) => theme.typography.fontSizes.xLarge};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
@@ -179,11 +253,21 @@ export const LuxuryJourneyTextElement = styled.p`
 `;
 
 export const LuxuryJourneyPairBandElement = styled.div<LuxuryJourneyToneProps>`
+  position: relative;
   width: 100%;
+  overflow: hidden;
   background: ${({ theme, $tone }) =>
     $tone === "primary"
       ? theme.color.background.primary
       : theme.color.background.secondary};
+
+  ${({ theme, $tone }) =>
+    softGrid(
+      $tone === "primary"
+        ? theme.color.background.primary
+        : theme.color.background.secondary,
+      theme.color.border.soft,
+    )}
 `;
 
 export const LuxuryJourneyPairGridElement = styled.div`
@@ -191,7 +275,7 @@ export const LuxuryJourneyPairGridElement = styled.div`
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: ${({ theme }) => theme.spacing(3)};
   width: 100%;
-  padding-block: ${({ theme }) => theme.spacing(8)};
+  padding-block: ${({ theme }) => theme.spacing(9)};
   padding-inline: ${({ theme }) => theme.spacing(5)};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}) {
@@ -229,12 +313,12 @@ export const LuxuryJourneyPairCardElement = styled.article<LuxuryJourneyRevealPr
 export const LuxuryJourneyPairTitleElement = styled.h2`
   width: fit-content;
   max-width: 100%;
+  margin: 0;
   color: ${({ theme }) => theme.color.text.primary};
   font-size: ${({ theme }) => theme.typography.fontSizes.xxLarge};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 
   &::after {
     content: "";

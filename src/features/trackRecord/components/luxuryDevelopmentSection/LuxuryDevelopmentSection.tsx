@@ -5,12 +5,29 @@ import { useInView } from "@features/trackRecord/hooks/useInView";
 import { ImageLightbox } from "@shared/ui/overlays/imageLightbox/ImageLightbox";
 import * as S from "./LuxuryDevelopmentSection.elements";
 
+const splitDevelopmentTitle = (title: string) => {
+  const separator = " / ";
+  const separatorIndex = title.indexOf(separator);
+
+  if (separatorIndex === -1) {
+    return { eyebrow: null, heading: title };
+  }
+
+  return {
+    eyebrow: title.slice(0, separatorIndex).trim(),
+    heading: title.slice(separatorIndex + separator.length).trim(),
+  };
+};
+
 export const LuxuryDevelopmentSection = () => {
   const { t, i18n } = useTranslation("common");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const { ref: sectionRef, isInView } = useInView<HTMLDivElement>({
     threshold: 0.14,
   });
+
+  const fullTitle = t("pages.trackRecord.projects.luxury.development.title");
+  const { eyebrow, heading } = splitDevelopmentTitle(fullTitle);
 
   const lightboxImages = luxuryDevelopmentItems.map((item) => ({
     src: item.image,
@@ -20,13 +37,20 @@ export const LuxuryDevelopmentSection = () => {
   return (
     <S.LuxuryDevelopmentSectionElement
       key={i18n.language}
-      aria-label={t("pages.trackRecord.projects.luxury.development.title")}
+      aria-label={fullTitle}
     >
       <S.LuxuryDevelopmentInnerElement>
         <S.LuxuryDevelopmentStackElement ref={sectionRef} $visible={isInView}>
-          <S.LuxuryDevelopmentTitleElement>
-            {t("pages.trackRecord.projects.luxury.development.title")}
-          </S.LuxuryDevelopmentTitleElement>
+          <S.LuxuryDevelopmentHeadingElement>
+            {eyebrow ? (
+              <S.LuxuryDevelopmentEyebrowElement>
+                {eyebrow}
+              </S.LuxuryDevelopmentEyebrowElement>
+            ) : null}
+            <S.LuxuryDevelopmentTitleElement>
+              {heading}
+            </S.LuxuryDevelopmentTitleElement>
+          </S.LuxuryDevelopmentHeadingElement>
 
           <S.LuxuryDevelopmentGridElement>
             {luxuryDevelopmentItems.map((item, index) => (

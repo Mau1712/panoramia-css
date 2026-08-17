@@ -10,6 +10,46 @@ import * as S from "./LuxuryJourneySection.elements";
 
 const PAIRED_STEP_IDS = new Set(["step2", "step3"]);
 
+const splitLuxuryTitle = (title: string) => {
+  const separator = " | ";
+  const separatorIndex = title.indexOf(separator);
+
+  if (separatorIndex === -1) {
+    return { eyebrow: null, heading: title };
+  }
+
+  return {
+    eyebrow: title.slice(0, separatorIndex).trim(),
+    heading: title.slice(separatorIndex + separator.length).trim(),
+  };
+};
+
+const LuxuryJourneyHeading = ({ title }: { title: string }) => {
+  const { eyebrow, heading } = splitLuxuryTitle(title);
+
+  return (
+    <S.LuxuryJourneyHeadingElement>
+      {eyebrow ? (
+        <S.LuxuryJourneyEyebrowElement>{eyebrow}</S.LuxuryJourneyEyebrowElement>
+      ) : null}
+      <S.LuxuryJourneyTitleElement>{heading}</S.LuxuryJourneyTitleElement>
+    </S.LuxuryJourneyHeadingElement>
+  );
+};
+
+const LuxuryJourneyPairHeading = ({ title }: { title: string }) => {
+  const { eyebrow, heading } = splitLuxuryTitle(title);
+
+  return (
+    <S.LuxuryJourneyHeadingElement>
+      {eyebrow ? (
+        <S.LuxuryJourneyEyebrowElement>{eyebrow}</S.LuxuryJourneyEyebrowElement>
+      ) : null}
+      <S.LuxuryJourneyPairTitleElement>{heading}</S.LuxuryJourneyPairTitleElement>
+    </S.LuxuryJourneyHeadingElement>
+  );
+};
+
 const LuxuryJourneyStepBlock = ({
   step,
   index,
@@ -22,14 +62,13 @@ const LuxuryJourneyStepBlock = ({
   const { t } = useTranslation("common");
   const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.14 });
   const tone = index % 2 === 0 ? "primary" : "secondary";
+  const title = t(step.titleKey);
 
   return (
-    <S.LuxuryJourneyStepElement $tone={tone} aria-label={t(step.titleKey)}>
+    <S.LuxuryJourneyStepElement $tone={tone} aria-label={title}>
       <S.LuxuryJourneyInnerElement>
         <S.LuxuryJourneyStackElement ref={ref} $visible={isInView}>
-          <S.LuxuryJourneyTitleElement>
-            {t(step.titleKey)}
-          </S.LuxuryJourneyTitleElement>
+          <LuxuryJourneyHeading title={title} />
 
           <S.LuxuryJourneyFigureElement>
             <S.LuxuryJourneyMediaElement>
@@ -99,9 +138,7 @@ const LuxuryJourneyPairBlock = ({
               $delayMs={100 + cardIndex * 80}
               aria-label={t(step.titleKey)}
             >
-              <S.LuxuryJourneyPairTitleElement>
-                {t(step.titleKey)}
-              </S.LuxuryJourneyPairTitleElement>
+              <LuxuryJourneyPairHeading title={t(step.titleKey)} />
               <S.LuxuryJourneyFigureElement>
                 <S.LuxuryJourneyPairMediaElement>
                   <S.LuxuryJourneyMediaButtonElement

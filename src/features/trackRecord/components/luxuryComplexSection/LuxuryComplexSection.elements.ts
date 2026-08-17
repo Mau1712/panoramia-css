@@ -13,11 +13,53 @@ const fadeUp = keyframes`
 `;
 
 export const LuxuryComplexSectionElement = styled.section`
+  position: relative;
   width: 100%;
-  background: ${({ theme }) => theme.color.background.primary};
+  overflow: hidden;
+  background: ${({ theme }) => theme.color.background.secondary};
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        to right,
+        ${({ theme }) => theme.color.background.secondary} 0%,
+        transparent 16%,
+        transparent 84%,
+        ${({ theme }) => theme.color.background.secondary} 100%
+      ),
+      linear-gradient(
+        to bottom,
+        ${({ theme }) => theme.color.background.secondary} 0%,
+        transparent 18%,
+        transparent 82%,
+        ${({ theme }) => theme.color.background.secondary} 100%
+      ),
+      repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent 55px,
+        ${({ theme }) => theme.color.border.soft} 55px,
+        ${({ theme }) => theme.color.border.soft} 56px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 55px,
+        ${({ theme }) => theme.color.border.soft} 55px,
+        ${({ theme }) => theme.color.border.soft} 56px
+      );
+    opacity: 0.45;
+  }
 `;
 
-export const LuxuryComplexInnerElement = styled(SectionContainer)``;
+export const LuxuryComplexInnerElement = styled(SectionContainer)`
+  position: relative;
+  z-index: 1;
+`;
 
 interface LuxuryComplexRevealProps {
   $visible: boolean;
@@ -29,7 +71,7 @@ export const LuxuryComplexStackElement = styled.div<LuxuryComplexRevealProps>`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing(3.5)};
   width: 100%;
-  padding-block: ${({ theme }) => theme.spacing(8)};
+  padding-block: ${({ theme }) => theme.spacing(9)};
   padding-inline: ${({ theme }) => theme.spacing(5)};
   opacity: 0;
 
@@ -56,15 +98,33 @@ export const LuxuryComplexStackElement = styled.div<LuxuryComplexRevealProps>`
   }
 `;
 
+export const LuxuryComplexHeadingElement = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: ${({ theme }) => theme.spacing(1.25)};
+  max-width: 48rem;
+`;
+
+export const LuxuryComplexEyebrowElement = styled.p`
+  margin: 0;
+  color: ${({ theme }) => theme.color.text.secondary};
+  font-size: ${({ theme }) => theme.typography.fontSizes.small};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.semiBold};
+  letter-spacing: 0.16em;
+  line-height: 1.3;
+  text-transform: uppercase;
+`;
+
 export const LuxuryComplexTitleElement = styled.h2`
   width: fit-content;
   max-width: 100%;
+  margin: 0;
   color: ${({ theme }) => theme.color.text.primary};
   font-size: ${({ theme }) => theme.typography.fontSizes.xxxLarge};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 
   &::after {
     content: "";
@@ -86,7 +146,9 @@ export const LuxuryComplexHeroElement = styled.figure`
   margin: 0;
   overflow: hidden;
   min-height: clamp(16rem, 44vw, 32rem);
-  background: ${({ theme }) => theme.color.background.secondary};
+  background: ${({ theme }) => theme.color.background.primary};
+  border: 1px solid ${({ theme }) => theme.color.border.primary};
+  box-shadow: inset 0 0 0 1px ${({ theme }) => theme.color.background.secondary};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     min-height: clamp(14rem, 54vw, 22rem);
@@ -185,11 +247,14 @@ export const LuxuryComplexCardMediaElement = styled.div`
   width: 100%;
   overflow: hidden;
   aspect-ratio: 4 / 3;
-  background: ${({ theme }) => theme.color.background.secondary};
+  background: ${({ theme }) => theme.color.background.primary};
+  border: 1px solid ${({ theme }) => theme.color.border.primary};
 `;
 
 export const LuxuryComplexCaptionElement = styled.p`
   margin: 0;
+  padding-left: ${({ theme }) => theme.spacing(1.5)};
+  border-left: 2px solid ${({ theme }) => theme.color.text.primary};
   color: ${({ theme }) => theme.color.text.primary};
   font-size: ${({ theme }) => theme.typography.fontSizes.large};
   font-weight: ${({ theme }) => theme.typography.fontWeight.semiBold};

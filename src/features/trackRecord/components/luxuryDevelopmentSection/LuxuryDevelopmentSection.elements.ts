@@ -13,12 +13,45 @@ const fadeUp = keyframes`
 `;
 
 export const LuxuryDevelopmentSectionElement = styled.section`
+  position: relative;
   width: 100%;
+  overflow: hidden;
   background: ${({ theme }) => theme.color.neutral[900]};
   color: ${({ theme }) => theme.color.neutral[50]};
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        ellipse 70% 55% at 80% 18%,
+        ${({ theme }) => theme.color.neutral[700]} 0%,
+        transparent 70%
+      ),
+      repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent 71px,
+        ${({ theme }) => theme.color.neutral[700]} 71px,
+        ${({ theme }) => theme.color.neutral[700]} 72px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 71px,
+        ${({ theme }) => theme.color.neutral[700]} 71px,
+        ${({ theme }) => theme.color.neutral[700]} 72px
+      );
+    opacity: 0.3;
+  }
 `;
 
-export const LuxuryDevelopmentInnerElement = styled(SectionContainer)``;
+export const LuxuryDevelopmentInnerElement = styled(SectionContainer)`
+  position: relative;
+  z-index: 1;
+`;
 
 interface LuxuryDevelopmentRevealProps {
   $visible: boolean;
@@ -57,15 +90,33 @@ export const LuxuryDevelopmentStackElement = styled.div<LuxuryDevelopmentRevealP
   }
 `;
 
+export const LuxuryDevelopmentHeadingElement = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: ${({ theme }) => theme.spacing(1.25)};
+  max-width: 48rem;
+`;
+
+export const LuxuryDevelopmentEyebrowElement = styled.p`
+  margin: 0;
+  color: ${({ theme }) => theme.color.neutral[400]};
+  font-size: ${({ theme }) => theme.typography.fontSizes.small};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.semiBold};
+  letter-spacing: 0.16em;
+  line-height: 1.3;
+  text-transform: uppercase;
+`;
+
 export const LuxuryDevelopmentTitleElement = styled.h2`
   width: fit-content;
   max-width: 100%;
+  margin: 0;
   color: ${({ theme }) => theme.color.neutral[50]};
   font-size: ${({ theme }) => theme.typography.fontSizes.xxxLarge};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
-  letter-spacing: 0.04em;
+  letter-spacing: -0.02em;
   line-height: 1.15;
-  text-transform: uppercase;
 
   &::after {
     content: "";
@@ -125,6 +176,7 @@ export const LuxuryDevelopmentMediaElement = styled.div`
   overflow: hidden;
   aspect-ratio: 16 / 10;
   background: ${({ theme }) => theme.color.neutral[800]};
+  border: 1px solid ${({ theme }) => theme.color.neutral[700]};
 
   ${LuxuryDevelopmentCardElement}:last-child & {
     aspect-ratio: 21 / 9;
@@ -196,6 +248,8 @@ export const LuxuryDevelopmentMediaHintElement = styled.span`
 
 export const LuxuryDevelopmentCaptionElement = styled.p`
   margin: 0;
+  padding-left: ${({ theme }) => theme.spacing(1.5)};
+  border-left: 2px solid ${({ theme }) => theme.color.neutral[50]};
   color: ${({ theme }) => theme.color.neutral[100]};
   font-size: ${({ theme }) => theme.typography.fontSizes.large};
   font-weight: ${({ theme }) => theme.typography.fontWeight.semiBold};

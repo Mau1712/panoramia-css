@@ -8,6 +8,20 @@ import { useInView } from "@features/trackRecord/hooks/useInView";
 import { ImageLightbox } from "@shared/ui/overlays/imageLightbox/ImageLightbox";
 import * as S from "./LuxuryComplexSection.elements";
 
+const splitLuxuryTitle = (title: string) => {
+  const separator = " | ";
+  const separatorIndex = title.indexOf(separator);
+
+  if (separatorIndex === -1) {
+    return { eyebrow: null, heading: title };
+  }
+
+  return {
+    eyebrow: title.slice(0, separatorIndex).trim(),
+    heading: title.slice(separatorIndex + separator.length).trim(),
+  };
+};
+
 export const LuxuryComplexSection = () => {
   const { t, i18n } = useTranslation("common");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -15,6 +29,8 @@ export const LuxuryComplexSection = () => {
     threshold: 0.12,
   });
 
+  const fullTitle = t("pages.trackRecord.projects.luxury.complex.title");
+  const { eyebrow, heading } = splitLuxuryTitle(fullTitle);
   const heroAlt = t("pages.trackRecord.projects.luxury.complex.imageAlt");
 
   const lightboxImages = [
@@ -28,13 +44,16 @@ export const LuxuryComplexSection = () => {
   return (
     <S.LuxuryComplexSectionElement
       key={i18n.language}
-      aria-label={t("pages.trackRecord.projects.luxury.complex.title")}
+      aria-label={fullTitle}
     >
       <S.LuxuryComplexInnerElement>
         <S.LuxuryComplexStackElement ref={sectionRef} $visible={isInView}>
-          <S.LuxuryComplexTitleElement>
-            {t("pages.trackRecord.projects.luxury.complex.title")}
-          </S.LuxuryComplexTitleElement>
+          <S.LuxuryComplexHeadingElement>
+            {eyebrow ? (
+              <S.LuxuryComplexEyebrowElement>{eyebrow}</S.LuxuryComplexEyebrowElement>
+            ) : null}
+            <S.LuxuryComplexTitleElement>{heading}</S.LuxuryComplexTitleElement>
+          </S.LuxuryComplexHeadingElement>
 
           <S.LuxuryComplexHeroElement>
             <S.LuxuryComplexMediaButtonElement
