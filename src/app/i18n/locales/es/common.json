@@ -442,7 +442,79 @@
         },
         "luxury": {
           "title": "Residencial de lujo",
-          "description": "Página de proyecto de trayectoria lista para contenido."
+          "description": "Página de proyecto de trayectoria lista para contenido.",
+          "banner": {
+            "title": "Desarrollo de tierra a residencial de lujo",
+            "imageAlt": "Desarrollo de tierra para residencial de lujo"
+          },
+          "journey": {
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}",
+            "steps": {
+              "step1": {
+                "title": "Paso 1 | Adquisición de tierra",
+                "text": "Planificamos cada detalle: nivelación y movimiento de tierra",
+                "imageAlt": "Adquisición de tierra para desarrollo residencial de lujo"
+              },
+              "step2": {
+                "title": "Paso 2 | Tierra en bruto – Movimiento de tierra",
+                "imageAlt": "Movimiento de tierra en terreno en bruto para residencial de lujo"
+              },
+              "step3": {
+                "title": "Paso 3 | Nivelación y preparación del terreno",
+                "imageAlt": "Nivelación y preparación del terreno"
+              },
+              "step4": {
+                "title": "Paso 4 | Vías, servicios e infraestructura y construcción simultánea",
+                "text": "Construyendo en altura",
+                "imageAlt": "Vías, servicios y construcción simultánea de edificios"
+              },
+              "step5": {
+                "title": "Paso 5 | Residencias de lujo de baja densidad – Construcción",
+                "imageAlt": "Residencias de lujo de baja densidad en construcción"
+              },
+              "delivered": {
+                "title": "Entregado | Edificio residencial de lujo",
+                "imageAlt": "Edificio residencial de lujo entregado"
+              }
+            }
+          },
+          "complex": {
+            "title": "Paso 6 | Complejo de edificios con aptos de 200 m² a 450 m²",
+            "imageAlt": "Complejo de edificios residenciales de lujo de 200 a 450 m²",
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}",
+            "items": {
+              "foundation": {
+                "caption": "Nuestro trabajo de fundaciones"
+              },
+              "construction": {
+                "caption": "Construcción en progreso"
+              },
+              "infrastructure": {
+                "caption": "Infraestructura en sitio"
+              },
+              "partner": {
+                "caption": "Desarrollo en sociedad"
+              }
+            }
+          },
+          "development": {
+            "title": "Desarrollo de tierra / Desarrollo de edificios",
+            "hint": "Haz clic para ampliar",
+            "openAria": "Ver más grande: {{alt}}",
+            "items": {
+              "masterPlanning": {
+                "caption": "Plan maestro"
+              },
+              "utilities": {
+                "caption": "Servicios e infraestructura"
+              },
+              "aerial": {
+                "caption": "Vista aérea | Urbanización completada"
+              }
+            }
+          }
         }
       }
     },

@@ -180,7 +180,7 @@ export const SelectedTrackCarouselElement = styled.ul`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding-right: 0;
+    padding-right: ${({ theme }) => theme.spacing(2)};
   }
 `;
 

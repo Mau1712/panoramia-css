@@ -1,3 +1,15 @@
+import luxuryStep1Image from "@assets/trackRecord/luxuryResidential/land-development-to-luxury-residential-01-1.webp";
+import luxuryComplexHeroImageAsset from "@assets/trackRecord/luxuryResidential/land-development-to-luxury-residential-01 (1).webp";
+import luxuryStep2Image from "@assets/trackRecord/luxuryResidential/land-development-to-luxury-residential-02.webp";
+import luxuryFoundationImage from "@assets/trackRecord/luxuryResidential/land-development-to-luxury-residential-02 (1).webp";
+import luxuryStep3Image from "@assets/trackRecord/luxuryResidential/land-development-to-luxury-residential-03.webp";
+import luxuryStep4Image from "@assets/trackRecord/luxuryResidential/land-development-to-luxury-residential-04.webp";
+import luxuryStep5Image from "@assets/trackRecord/luxuryResidential/land-development-to-luxury-residential-05.webp";
+import luxuryDeliveredImage from "@assets/trackRecord/luxuryResidential/land-development-to-luxury-residential-06.webp";
+import luxuryMasterPlanningImage from "@assets/trackRecord/luxuryResidential/land-development-to-luxury-residential-07.webp";
+import luxuryUtilitiesImage from "@assets/trackRecord/luxuryResidential/land-development-to-luxury-residential-08.webp";
+import luxuryAerialImage from "@assets/trackRecord/luxuryResidential/land-development-to-luxury-residential-09.webp";
+
 export const residentialTrackBannerPoints = [
   "pages.trackRecord.projects.residential.banner.points.acquisition",
   "pages.trackRecord.projects.residential.banner.points.zoning",
@@ -265,6 +277,148 @@ export const logisticsProvenExecutionStats: LogisticsProvenExecutionStat[] = [
       "pages.trackRecord.projects.logistics.provenExecution.stats.type.value",
     labelKey:
       "pages.trackRecord.projects.logistics.provenExecution.stats.type.label",
+  },
+];
+
+export interface LuxuryJourneyStep {
+  id: string;
+  image: string;
+  titleKey:
+    | "pages.trackRecord.projects.luxury.journey.steps.step1.title"
+    | "pages.trackRecord.projects.luxury.journey.steps.step2.title"
+    | "pages.trackRecord.projects.luxury.journey.steps.step3.title"
+    | "pages.trackRecord.projects.luxury.journey.steps.step4.title"
+    | "pages.trackRecord.projects.luxury.journey.steps.step5.title"
+    | "pages.trackRecord.projects.luxury.journey.steps.delivered.title";
+  textKey?:
+    | "pages.trackRecord.projects.luxury.journey.steps.step1.text"
+    | "pages.trackRecord.projects.luxury.journey.steps.step4.text";
+  imageAltKey:
+    | "pages.trackRecord.projects.luxury.journey.steps.step1.imageAlt"
+    | "pages.trackRecord.projects.luxury.journey.steps.step2.imageAlt"
+    | "pages.trackRecord.projects.luxury.journey.steps.step3.imageAlt"
+    | "pages.trackRecord.projects.luxury.journey.steps.step4.imageAlt"
+    | "pages.trackRecord.projects.luxury.journey.steps.step5.imageAlt"
+    | "pages.trackRecord.projects.luxury.journey.steps.delivered.imageAlt";
+}
+
+export const luxuryJourneySteps: LuxuryJourneyStep[] = [
+  {
+    id: "step1",
+    image: luxuryStep1Image,
+    titleKey: "pages.trackRecord.projects.luxury.journey.steps.step1.title",
+    textKey: "pages.trackRecord.projects.luxury.journey.steps.step1.text",
+    imageAltKey:
+      "pages.trackRecord.projects.luxury.journey.steps.step1.imageAlt",
+  },
+  {
+    id: "step2",
+    image: luxuryStep2Image,
+    titleKey: "pages.trackRecord.projects.luxury.journey.steps.step2.title",
+    imageAltKey:
+      "pages.trackRecord.projects.luxury.journey.steps.step2.imageAlt",
+  },
+  {
+    id: "step3",
+    image: luxuryStep3Image,
+    titleKey: "pages.trackRecord.projects.luxury.journey.steps.step3.title",
+    imageAltKey:
+      "pages.trackRecord.projects.luxury.journey.steps.step3.imageAlt",
+  },
+  {
+    id: "step4",
+    image: luxuryStep4Image,
+    titleKey: "pages.trackRecord.projects.luxury.journey.steps.step4.title",
+    textKey: "pages.trackRecord.projects.luxury.journey.steps.step4.text",
+    imageAltKey:
+      "pages.trackRecord.projects.luxury.journey.steps.step4.imageAlt",
+  },
+  {
+    id: "step5",
+    image: luxuryStep5Image,
+    titleKey: "pages.trackRecord.projects.luxury.journey.steps.step5.title",
+    imageAltKey:
+      "pages.trackRecord.projects.luxury.journey.steps.step5.imageAlt",
+  },
+];
+
+export const luxuryJourneyLateSteps: LuxuryJourneyStep[] = [
+  {
+    id: "delivered",
+    image: luxuryDeliveredImage,
+    titleKey:
+      "pages.trackRecord.projects.luxury.journey.steps.delivered.title",
+    imageAltKey:
+      "pages.trackRecord.projects.luxury.journey.steps.delivered.imageAlt",
+  },
+];
+
+export const luxuryComplexHeroImage = luxuryComplexHeroImageAsset;
+
+export interface LuxuryComplexGalleryItem {
+  id: string;
+  image: string;
+  captionKey:
+    | "pages.trackRecord.projects.luxury.complex.items.foundation.caption"
+    | "pages.trackRecord.projects.luxury.complex.items.construction.caption"
+    | "pages.trackRecord.projects.luxury.complex.items.infrastructure.caption"
+    | "pages.trackRecord.projects.luxury.complex.items.partner.caption";
+}
+
+export const luxuryComplexGalleryItems: LuxuryComplexGalleryItem[] = [
+  {
+    id: "foundation",
+    image: luxuryFoundationImage,
+    captionKey:
+      "pages.trackRecord.projects.luxury.complex.items.foundation.caption",
+  },
+  {
+    id: "construction",
+    image: luxuryStep3Image,
+    captionKey:
+      "pages.trackRecord.projects.luxury.complex.items.construction.caption",
+  },
+  {
+    id: "infrastructure",
+    image: luxuryStep5Image,
+    captionKey:
+      "pages.trackRecord.projects.luxury.complex.items.infrastructure.caption",
+  },
+  {
+    id: "partner",
+    image: luxuryComplexHeroImageAsset,
+    captionKey:
+      "pages.trackRecord.projects.luxury.complex.items.partner.caption",
+  },
+];
+
+export interface LuxuryDevelopmentItem {
+  id: string;
+  image: string;
+  captionKey:
+    | "pages.trackRecord.projects.luxury.development.items.masterPlanning.caption"
+    | "pages.trackRecord.projects.luxury.development.items.utilities.caption"
+    | "pages.trackRecord.projects.luxury.development.items.aerial.caption";
+}
+
+export const luxuryDevelopmentItems: LuxuryDevelopmentItem[] = [
+  {
+    id: "masterPlanning",
+    image: luxuryMasterPlanningImage,
+    captionKey:
+      "pages.trackRecord.projects.luxury.development.items.masterPlanning.caption",
+  },
+  {
+    id: "utilities",
+    image: luxuryUtilitiesImage,
+    captionKey:
+      "pages.trackRecord.projects.luxury.development.items.utilities.caption",
+  },
+  {
+    id: "aerial",
+    image: luxuryAerialImage,
+    captionKey:
+      "pages.trackRecord.projects.luxury.development.items.aerial.caption",
   },
 ];
 

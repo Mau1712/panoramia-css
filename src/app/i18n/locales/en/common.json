@@ -442,7 +442,79 @@
         },
         "luxury": {
           "title": "Luxury Residential",
-          "description": "Track record project page ready for content."
+          "description": "Track record project page ready for content.",
+          "banner": {
+            "title": "Land Development to luxury residential",
+            "imageAlt": "Luxury residential land development"
+          },
+          "journey": {
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}",
+            "steps": {
+              "step1": {
+                "title": "Step 1 | Land Acquisition",
+                "text": "We Plan Every Detail Grading & Earthworks",
+                "imageAlt": "Land acquisition for luxury residential development"
+              },
+              "step2": {
+                "title": "Step 2 | Raw Land – Earth Works",
+                "imageAlt": "Raw land earthworks for luxury residential development"
+              },
+              "step3": {
+                "title": "Step 3 | Site Grading & Land Preparation",
+                "imageAlt": "Site grading and land preparation"
+              },
+              "step4": {
+                "title": "Step 4 | Roads, Utilities & Infrastructure and Building Simultaneously",
+                "text": "Building Upward",
+                "imageAlt": "Roads, utilities and simultaneous building construction"
+              },
+              "step5": {
+                "title": "Step 5 | Low Density Luxury Residences – Construction",
+                "imageAlt": "Low density luxury residences under construction"
+              },
+              "delivered": {
+                "title": "Delivered | Luxury Residential Building",
+                "imageAlt": "Delivered luxury residential building"
+              }
+            }
+          },
+          "complex": {
+            "title": "Step 6 | Various Building Complex Apts from 200 sqm to 450 sqm",
+            "imageAlt": "Luxury apartment building complex from 200 to 450 sqm",
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}",
+            "items": {
+              "foundation": {
+                "caption": "Our Foundation Work"
+              },
+              "construction": {
+                "caption": "Construction in Progress"
+              },
+              "infrastructure": {
+                "caption": "On-Site Infrastructure"
+              },
+              "partner": {
+                "caption": "Partner Development"
+              }
+            }
+          },
+          "development": {
+            "title": "Land Development / Building Development",
+            "hint": "Click to enlarge",
+            "openAria": "View larger: {{alt}}",
+            "items": {
+              "masterPlanning": {
+                "caption": "Master Planning"
+              },
+              "utilities": {
+                "caption": "Utilities & Infrastructure"
+              },
+              "aerial": {
+                "caption": "Aerial View | Completed Urbanization"
+              }
+            }
+          }
         }
       }
     },

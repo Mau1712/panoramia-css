@@ -1,24 +1,18 @@
-import { useTranslation } from "react-i18next";
-import {
-  TrackRecordDetailPageElement,
-  TrackRecordDetailPlaceholderElement,
-  TrackRecordDetailTextElement,
-  TrackRecordDetailTitleElement,
-} from "./TrackRecordDetailPage.elements";
+import { LuxuryComplexSection } from "../components/luxuryComplexSection/LuxuryComplexSection";
+import { LuxuryDevelopmentSection } from "../components/luxuryDevelopmentSection/LuxuryDevelopmentSection";
+import { LuxuryJourneySection } from "../components/luxuryJourneySection/LuxuryJourneySection";
+import { LuxuryTrackBanner } from "../components/luxuryTrackBanner/LuxuryTrackBanner";
+import { luxuryJourneyLateSteps } from "../data";
+import { TrackRecordDetailPageElement } from "./TrackRecordDetailPage.elements";
 
 export const LuxuryTrackPage = () => {
-  const { t } = useTranslation("common");
-
   return (
     <TrackRecordDetailPageElement>
-      <TrackRecordDetailPlaceholderElement>
-        <TrackRecordDetailTitleElement>
-          {t("pages.trackRecord.projects.luxury.title")}
-        </TrackRecordDetailTitleElement>
-        <TrackRecordDetailTextElement>
-          {t("pages.trackRecord.projects.luxury.description")}
-        </TrackRecordDetailTextElement>
-      </TrackRecordDetailPlaceholderElement>
+      <LuxuryTrackBanner />
+      <LuxuryJourneySection />
+      <LuxuryComplexSection />
+      <LuxuryJourneySection steps={luxuryJourneyLateSteps} toneOffset={6} />
+      <LuxuryDevelopmentSection />
     </TrackRecordDetailPageElement>
   );
 };
