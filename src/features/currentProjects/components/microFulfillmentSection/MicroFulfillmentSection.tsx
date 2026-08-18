@@ -52,13 +52,12 @@ export const MicroFulfillmentSection = () => {
 
   return (
     <MicroFulfillmentSectionElement
-      id="micro-fulfillment"
       key={i18n.language}
       aria-label={t("pages.currentProjects.microFulfillment.title")}
     >
       <MicroFulfillmentInnerElement>
         <MicroFulfillmentStackElement>
-          <MicroFulfillmentTitleElement>
+          <MicroFulfillmentTitleElement id="micro-fulfillment">
             {t("pages.currentProjects.microFulfillment.title")}
           </MicroFulfillmentTitleElement>
 

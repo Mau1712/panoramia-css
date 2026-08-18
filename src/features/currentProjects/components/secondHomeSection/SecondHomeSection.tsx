@@ -107,7 +107,6 @@ export const SecondHomeSection = () => {
 
   return (
     <SecondHomeSectionElement
-      id="second-home"
       key={i18n.language}
       aria-label={t("pages.currentProjects.secondHome.title")}
     >
@@ -115,7 +114,7 @@ export const SecondHomeSection = () => {
         <SecondHomeStackElement>
           <SecondHomeIntroElement>
             <SecondHomeHeadingElement>
-              <SecondHomeTitleElement>
+              <SecondHomeTitleElement id="second-home">
                 {t("pages.currentProjects.secondHome.title")}
               </SecondHomeTitleElement>
               <SecondHomeSubtitleElement>

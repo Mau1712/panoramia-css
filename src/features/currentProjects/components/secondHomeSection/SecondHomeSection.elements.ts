@@ -15,14 +15,7 @@ const fadeUp = keyframes`
 export const SecondHomeSectionElement = styled.section`
   width: 100%;
   overflow: hidden;
-  scroll-margin-top: ${({ theme }) =>
-    `calc(${theme.spacing(3)} * 2 + ${theme.spacing(4.5)} + ${theme.spacing(2)})`};
   background: ${({ theme }) => theme.color.background.secondary};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}) {
-    scroll-margin-top: ${({ theme }) =>
-      `calc(${theme.spacing(2)} * 2 + ${theme.spacing(4)} + ${theme.spacing(2)})`};
-  }
 `;
 
 export const SecondHomeInnerElement = styled(SectionContainer)``;
@@ -71,6 +64,8 @@ export const SecondHomeHeadingElement = styled.div`
 export const SecondHomeTitleElement = styled.h2`
   width: fit-content;
   max-width: 100%;
+  scroll-margin-top: ${({ theme }) =>
+    `calc(${theme.spacing(3)} * 2 + ${theme.spacing(4.5)} + ${theme.spacing(2)})`};
   color: ${({ theme }) => theme.color.text.primary};
   font-size: ${({ theme }) => theme.typography.fontSizes.xHeading};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
@@ -84,6 +79,11 @@ export const SecondHomeTitleElement = styled.h2`
     height: 3px;
     margin-top: ${({ theme }) => theme.spacing(1.5)};
     background: currentColor;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}) {
+    scroll-margin-top: ${({ theme }) =>
+      `calc(${theme.spacing(2)} * 2 + ${theme.spacing(4)} + ${theme.spacing(2)})`};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {

@@ -37,7 +37,6 @@ export const LuxuryHousesSection = () => {
 
   return (
     <LuxuryHousesSectionElement
-      id="luxury-houses"
       key={i18n.language}
       aria-label={t("pages.currentProjects.luxuryHouses.title")}
     >
@@ -46,7 +45,7 @@ export const LuxuryHousesSection = () => {
           <LuxuryHousesBodyElement>
             <LuxuryHousesContentElement>
               <LuxuryHousesHeaderElement>
-                <LuxuryHousesTitleElement>
+                <LuxuryHousesTitleElement id="luxury-houses">
                   {t("pages.currentProjects.luxuryHouses.title")}
                 </LuxuryHousesTitleElement>
                 <LuxuryHousesSubtitleElement>

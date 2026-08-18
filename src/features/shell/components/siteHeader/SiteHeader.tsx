@@ -97,7 +97,7 @@ export const SiteHeader = () => {
   }, [pathname, i18n.language, t]);
 
   return (
-    <SiteHeaderElement>
+    <SiteHeaderElement data-site-header>
       <LogoLinkElement to="/" aria-label={t("brand.fullName")}>
         <LogoImageElement src={panoramiaLogo} alt={t("brand.fullName")} />
       </LogoLinkElement>
