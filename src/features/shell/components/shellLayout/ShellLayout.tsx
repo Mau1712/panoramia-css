@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { ScrollToTop } from "@app/router/ScrollToTop";
+import { DocumentMeta } from "@app/seo";
 import { GlobalContainer } from "@shared/ui/containers/globalContainer/GlobalContainer";
 import { SiteFooter } from "../siteFooter/SiteFooter";
 import { SiteHeader } from "../siteHeader/SiteHeader";
@@ -13,6 +14,7 @@ export const ShellLayout = () => {
   return (
     <ShellLayoutElement>
       <ScrollToTop />
+      <DocumentMeta />
       <SiteHeader />
       <ShellContentElement>
         <GlobalContainer fullWidth>
