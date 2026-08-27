@@ -246,10 +246,20 @@ export const ContactSubmitElement = styled.button`
   }
 `;
 
-export const ContactFormStatusElement = styled.p`
-  color: ${({ theme }) => theme.color.text.secondary};
+export const ContactFormStatusElement = styled.p<{ $tone?: "success" | "error" }>`
+  color: ${({ theme, $tone }) =>
+    $tone === "error" ? theme.color.danger.default : theme.color.text.secondary};
   font-size: ${({ theme }) => theme.typography.fontSizes.normal};
   line-height: 1.45;
+`;
+
+export const ContactHoneypotElement = styled.div`
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 `;
 
 export const ContactMapWrapElement = styled.div`

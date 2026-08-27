@@ -709,7 +709,9 @@
         "message": "Mensaje",
         "messagePlaceholder": "¿En qué podemos ayudarte?",
         "submit": "Enviar",
-        "sent": "Se abrirá tu cliente de correo con el mensaje listo para enviar.",
+        "sending": "Enviando…",
+        "sent": "Gracias — tu mensaje se envió correctamente.",
+        "error": "No pudimos enviar tu mensaje. Inténtalo de nuevo en unos minutos.",
         "mailSubject": "Contacto de {{name}}"
       },
       "mapTitle": "Mapa de ubicación de El Encantado Ventas"

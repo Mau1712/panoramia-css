@@ -19,6 +19,7 @@ import {
   ContactFormTitleElement,
   ContactGridElement,
   ContactHeadingElement,
+  ContactHoneypotElement,
   ContactInfoCopyElement,
   ContactInfoIconElement,
   ContactInfoItemElement,
@@ -42,33 +43,65 @@ interface ContactFormState {
   name: string;
   email: string;
   message: string;
+  website: string;
 }
+
+type ContactStatus = "idle" | "loading" | "success" | "error";
 
 const initialFormState: ContactFormState = {
   name: "",
   email: "",
   message: "",
+  website: "",
 };
 
 export const ContactSection = () => {
   const { t, i18n } = useTranslation("common");
   const [form, setForm] = useState<ContactFormState>(initialFormState);
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [status, setStatus] = useState<ContactStatus>("idle");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const subject = encodeURIComponent(
-      t("pages.contact.form.mailSubject", { name: form.name }),
-    );
-    const body = encodeURIComponent(
-      `${t("pages.contact.form.name")}: ${form.name}\n${t("pages.contact.form.email")}: ${form.email}\n\n${form.message}`,
-    );
+    if (status === "loading") {
+      return;
+    }
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    setStatus("sent");
-    setForm(initialFormState);
+    setStatus("loading");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          message: form.message.trim(),
+          website: form.website,
+        }),
+      });
+
+      if (!response.ok) {
+        setStatus("error");
+        return;
+      }
+
+      setStatus("success");
+      setForm(initialFormState);
+    } catch {
+      setStatus("error");
+    }
   };
+
+  const statusMessage =
+    status === "success"
+      ? t("pages.contact.form.sent")
+      : status === "error"
+        ? t("pages.contact.form.error")
+        : null;
 
   return (
     <ContactSectionElement
@@ -145,6 +178,24 @@ export const ContactSection = () => {
                 {t("pages.contact.form.title")}
               </ContactFormTitleElement>
 
+              <ContactHoneypotElement aria-hidden="true">
+                <label htmlFor="contact-website">Website</label>
+                <input
+                  id="contact-website"
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form.website}
+                  onChange={(event) =>
+                    setForm((current) => ({
+                      ...current,
+                      website: event.target.value,
+                    }))
+                  }
+                />
+              </ContactHoneypotElement>
+
               <ContactFieldElement>
                 <ContactFieldLabelElement>
                   {t("pages.contact.form.name")}
@@ -154,8 +205,10 @@ export const ContactSection = () => {
                   name="name"
                   autoComplete="organization"
                   required
+                  maxLength={120}
                   value={form.name}
                   placeholder={t("pages.contact.form.namePlaceholder")}
+                  disabled={status === "loading"}
                   onChange={(event) =>
                     setForm((current) => ({
                       ...current,
@@ -174,8 +227,10 @@ export const ContactSection = () => {
                   name="email"
                   autoComplete="email"
                   required
+                  maxLength={254}
                   value={form.email}
                   placeholder={t("pages.contact.form.emailPlaceholder")}
+                  disabled={status === "loading"}
                   onChange={(event) =>
                     setForm((current) => ({
                       ...current,
@@ -192,8 +247,10 @@ export const ContactSection = () => {
                 <ContactTextareaElement
                   name="message"
                   required
+                  maxLength={5000}
                   value={form.message}
                   placeholder={t("pages.contact.form.messagePlaceholder")}
+                  disabled={status === "loading"}
                   onChange={(event) =>
                     setForm((current) => ({
                       ...current,
@@ -203,13 +260,21 @@ export const ContactSection = () => {
                 />
               </ContactFieldElement>
 
-              <ContactSubmitElement type="submit">
-                {t("pages.contact.form.submit")}
+              <ContactSubmitElement
+                type="submit"
+                disabled={status === "loading"}
+              >
+                {status === "loading"
+                  ? t("pages.contact.form.sending")
+                  : t("pages.contact.form.submit")}
               </ContactSubmitElement>
 
-              {status === "sent" ? (
-                <ContactFormStatusElement>
-                  {t("pages.contact.form.sent")}
+              {statusMessage ? (
+                <ContactFormStatusElement
+                  $tone={status === "error" ? "error" : "success"}
+                  role="status"
+                >
+                  {statusMessage}
                 </ContactFormStatusElement>
               ) : null}
             </ContactFormElement>
