@@ -11,8 +11,9 @@ const fadeIn = keyframes`
   }
 `;
 
-export const WhatsAppFabElement = styled.button`
+export const WhatsAppFabElement = styled.a`
   display: none;
+  text-decoration: none;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     position: fixed;

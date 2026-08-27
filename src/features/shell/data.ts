@@ -24,3 +24,8 @@ export const footerPhones: FooterPhone[] = [
 ];
 
 export const footerInstagramUrl = "https://www.instagram.com/panoramia.capital/";
+
+/** Primary WhatsApp number for the floating contact FAB (E.164 without "+"). */
+export const whatsAppPhone = "584143116161";
+
+export const whatsAppUrl = `https://wa.me/${whatsAppPhone}`;
