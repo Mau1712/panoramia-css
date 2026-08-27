@@ -1,11 +1,15 @@
 import "dotenv/config";
 import express from "express";
 import nodemailer from "nodemailer";
+import { probeGodaddyEmailGateway, sendEmail } from "./godaddyEmail.js";
 
 const trimEnv = (value) => (typeof value === "string" ? value.trim() : "");
 
 const CONTACT_EMAIL =
-  trimEnv(process.env.CONTACT_EMAIL) || "contact@panoramiaccs.com";
+  trimEnv(process.env.CONTACT_EMAIL) ||
+  trimEnv(process.env.CONTACT_FORM_RECIPIENT_EMAIL) ||
+  "contact@panoramiaccs.com";
+
 const SMTP_HOST = trimEnv(process.env.SMTP_HOST);
 const SMTP_PORT = Number(trimEnv(process.env.SMTP_PORT)) || 465;
 const SMTP_SECURE = String(process.env.SMTP_SECURE ?? "true").trim() !== "false";
@@ -13,6 +17,13 @@ const SMTP_USER = trimEnv(process.env.SMTP_USER);
 const SMTP_PASSWORD = process.env.SMTP_PASSWORD ?? "";
 const SMTP_FROM = trimEnv(process.env.SMTP_FROM) || SMTP_USER || CONTACT_EMAIL;
 const CONTACT_DEBUG = String(process.env.CONTACT_DEBUG ?? "").trim() === "true";
+
+/**
+ * auto     — prefer GoDaddy gateway when available, else SMTP (local/dev)
+ * godaddy  — only GoDaddy Node.js Hosting loopback gateway
+ * smtp     — only Nodemailer SMTP
+ */
+const EMAIL_DRIVER = (trimEnv(process.env.EMAIL_DRIVER) || "auto").toLowerCase();
 
 const MAX_NAME_LENGTH = 120;
 const MAX_EMAIL_LENGTH = 254;
@@ -81,10 +92,9 @@ const createTransporter = () => {
     connectionTimeout: 15000,
     greetingTimeout: 15000,
     socketTimeout: 20000,
+    family: 4,
     tls: {
       minVersion: "TLSv1.2",
-      // Some GoDaddy cPanel hosts present certs that fail strict validation
-      // from managed Node runtimes; keep overridable via env.
       rejectUnauthorized:
         String(process.env.SMTP_TLS_REJECT_UNAUTHORIZED ?? "true").trim() !==
         "false",
@@ -105,11 +115,18 @@ const createTransporter = () => {
   return nodemailer.createTransport(options);
 };
 
-const classifySmtpError = (error) => {
+const classifyMailError = (error) => {
+  const message = typeof error?.message === "string" ? error.message : "";
   const code = typeof error?.code === "string" ? error.code : "";
   const responseCode =
     typeof error?.responseCode === "number" ? error.responseCode : null;
 
+  if (message.includes("email gateway unreachable")) {
+    return "godaddy_gateway_unreachable";
+  }
+  if (message.includes("email send failed")) {
+    return "godaddy_gateway_rejected";
+  }
   if (code === "EAUTH" || responseCode === 535) {
     return "smtp_auth_failed";
   }
@@ -122,7 +139,92 @@ const classifySmtpError = (error) => {
   ) {
     return "smtp_connection_failed";
   }
-  return "smtp_send_failed";
+  return "mail_send_failed";
+};
+
+const buildMessageBodies = ({ name, email, message }) => {
+  const subject = `Contacto web — ${name}`;
+  const text = [
+    "Nueva consulta desde panoramiaccs.com",
+    "",
+    `Nombre / Empresa: ${name}`,
+    `Email: ${email}`,
+    "",
+    "Mensaje:",
+    message,
+  ].join("\n");
+
+  const html = `
+      <div style="font-family: Arial, Helvetica, sans-serif; color: #111; line-height: 1.5;">
+        <h2 style="margin: 0 0 16px; font-size: 18px;">Nueva consulta desde panoramiaccs.com</h2>
+        <p style="margin: 0 0 8px;"><strong>Nombre / Empresa:</strong> ${escapeHtml(name)}</p>
+        <p style="margin: 0 0 16px;"><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p style="margin: 0 0 8px;"><strong>Mensaje:</strong></p>
+        <p style="margin: 0; white-space: pre-wrap;">${escapeHtml(message)}</p>
+      </div>
+    `.trim();
+
+  return { subject, text, html };
+};
+
+const sendViaGodaddyGateway = async ({ name, email, message }) => {
+  const { subject, text, html } = buildMessageBodies({ name, email, message });
+
+  // Omit `from` — GoDaddy gateway picks the verified canonical sender.
+  return sendEmail({
+    to: CONTACT_EMAIL,
+    replyTo: email,
+    subject,
+    text,
+    html,
+  });
+};
+
+const sendViaSmtp = async ({ name, email, message }) => {
+  const transporter = createTransporter();
+
+  if (!transporter) {
+    const error = new Error("SMTP is not configured");
+    error.code = "MAIL_NOT_CONFIGURED";
+    throw error;
+  }
+
+  const { subject, text, html } = buildMessageBodies({ name, email, message });
+
+  return transporter.sendMail({
+    from: `"Panoramia Capital" <${SMTP_FROM}>`,
+    to: CONTACT_EMAIL,
+    replyTo: email,
+    subject,
+    text,
+    html,
+  });
+};
+
+const sendContactMail = async (payload) => {
+  if (EMAIL_DRIVER === "godaddy") {
+    return sendViaGodaddyGateway(payload);
+  }
+
+  if (EMAIL_DRIVER === "smtp") {
+    return sendViaSmtp(payload);
+  }
+
+  // auto: prefer GoDaddy gateway in hosting; fall back to SMTP for local/dev.
+  try {
+    return await sendViaGodaddyGateway(payload);
+  } catch (gatewayError) {
+    const gatewayCode = classifyMailError(gatewayError);
+    if (gatewayCode !== "godaddy_gateway_unreachable") {
+      throw gatewayError;
+    }
+
+    console.warn(
+      "[contact] GoDaddy email gateway unreachable; falling back to SMTP.",
+      gatewayError?.message,
+    );
+    return sendViaSmtp(payload);
+  }
 };
 
 export const handleContactPost = async (req, res) => {
@@ -141,7 +243,6 @@ export const handleContactPost = async (req, res) => {
     const honeypot =
       typeof body.website === "string" ? body.website.trim() : "";
 
-    // Silent success for bots that fill the honeypot.
     if (honeypot) {
       return res.status(200).json({ ok: true });
     }
@@ -171,11 +272,21 @@ export const handleContactPost = async (req, res) => {
       });
     }
 
-    const transporter = createTransporter();
+    if (!CONTACT_EMAIL) {
+      console.error("[contact] CONTACT_EMAIL is not configured");
+      return res.status(503).json({
+        ok: false,
+        error: "mail_not_configured",
+        message: "Email service is temporarily unavailable.",
+      });
+    }
 
-    if (!transporter) {
+    await sendContactMail({ name, email, message });
+    return res.status(200).json({ ok: true });
+  } catch (error) {
+    if (error?.code === "MAIL_NOT_CONFIGURED") {
       console.error(
-        "[contact] SMTP is not configured. Set SMTP_HOST and either auth credentials or a local relay host.",
+        "[contact] No mail transport available. On GoDaddy Node use the platform gateway; locally set SMTP_*.",
       );
       return res.status(503).json({
         ok: false,
@@ -184,55 +295,22 @@ export const handleContactPost = async (req, res) => {
       });
     }
 
-    const subject = `Contacto web — ${name}`;
-    const text = [
-      "Nueva consulta desde panoramiaccs.com",
-      "",
-      `Nombre / Empresa: ${name}`,
-      `Email: ${email}`,
-      "",
-      "Mensaje:",
-      message,
-    ].join("\n");
-
-    const html = `
-      <div style="font-family: Arial, Helvetica, sans-serif; color: #111; line-height: 1.5;">
-        <h2 style="margin: 0 0 16px; font-size: 18px;">Nueva consulta desde panoramiaccs.com</h2>
-        <p style="margin: 0 0 8px;"><strong>Nombre / Empresa:</strong> ${escapeHtml(name)}</p>
-        <p style="margin: 0 0 16px;"><strong>Email:</strong> ${escapeHtml(email)}</p>
-        <p style="margin: 0 0 8px;"><strong>Mensaje:</strong></p>
-        <p style="margin: 0; white-space: pre-wrap;">${escapeHtml(message)}</p>
-      </div>
-    `.trim();
-
-    await transporter.sendMail({
-      from: `"Panoramia Capital" <${SMTP_FROM}>`,
-      to: CONTACT_EMAIL,
-      replyTo: email,
-      subject,
-      text,
-      html,
-    });
-
-    return res.status(200).json({ ok: true });
-  } catch (error) {
-    const smtpError = classifySmtpError(error);
+    const mailError = classifyMailError(error);
     console.error("[contact] Failed to send email:", {
-      error: smtpError,
+      error: mailError,
       code: error?.code,
       command: error?.command,
       responseCode: error?.responseCode,
       response: error?.response,
       message: error?.message,
+      emailDriver: EMAIL_DRIVER,
       smtpHost: SMTP_HOST,
       smtpPort: SMTP_PORT,
-      smtpSecure: SMTP_SECURE,
-      smtpUserSet: Boolean(SMTP_USER),
     });
 
     return res.status(500).json({
       ok: false,
-      error: smtpError,
+      error: mailError,
       message: "Unable to send message. Please try again later.",
     });
   }
@@ -243,42 +321,24 @@ export const handleContactHealthGet = async (_req, res) => {
     return res.status(404).json({ ok: false, error: "not_found" });
   }
 
-  const transporter = createTransporter();
-  const config = {
-    host: SMTP_HOST || null,
-    port: SMTP_PORT,
-    secure: SMTP_SECURE,
-    user: SMTP_USER || null,
-    from: SMTP_FROM,
-    to: CONTACT_EMAIL,
-    authConfigured: Boolean(SMTP_USER && SMTP_PASSWORD),
-  };
+  const gateway = await probeGodaddyEmailGateway();
+  const smtpConfigured = Boolean(createTransporter());
 
-  if (!transporter) {
-    return res.status(503).json({
-      ok: false,
-      error: "mail_not_configured",
-      config,
-    });
-  }
-
-  try {
-    await transporter.verify();
-    return res.status(200).json({ ok: true, verify: "ok", config });
-  } catch (error) {
-    return res.status(500).json({
-      ok: false,
-      verify: "fail",
-      error: classifySmtpError(error),
-      code: error?.code || null,
-      responseCode: error?.responseCode || null,
-      message: error?.message || null,
-      config,
-    });
-  }
+  return res.status(200).json({
+    ok: true,
+    emailDriver: EMAIL_DRIVER,
+    contactEmail: CONTACT_EMAIL,
+    godaddyGateway: gateway,
+    smtp: {
+      configured: smtpConfigured,
+      host: SMTP_HOST || null,
+      port: SMTP_PORT,
+      secure: SMTP_SECURE,
+      authConfigured: Boolean(SMTP_USER && SMTP_PASSWORD),
+    },
+  });
 };
 
-/** Shared contact API router mounted at `/api`. */
 export const createContactRouter = () => {
   const router = express.Router();
   router.post("/contact", handleContactPost);
@@ -309,14 +369,13 @@ export const contactPayloadErrorHandler = (err, _req, res, next) => {
 };
 
 export const logSmtpBootstrap = () => {
-  console.log("[contact] SMTP bootstrap", {
-    host: SMTP_HOST || null,
-    port: SMTP_PORT,
-    secure: SMTP_SECURE,
-    user: SMTP_USER || null,
-    from: SMTP_FROM,
-    to: CONTACT_EMAIL,
-    authConfigured: Boolean(SMTP_USER && SMTP_PASSWORD),
+  console.log("[contact] mail bootstrap", {
+    emailDriver: EMAIL_DRIVER,
+    contactEmail: CONTACT_EMAIL,
+    smtpHost: SMTP_HOST || null,
+    smtpPort: SMTP_PORT,
+    smtpSecure: SMTP_SECURE,
+    smtpAuthConfigured: Boolean(SMTP_USER && SMTP_PASSWORD),
     debug: CONTACT_DEBUG,
   });
 };
