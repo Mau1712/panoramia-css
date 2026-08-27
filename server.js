@@ -5,6 +5,7 @@ import {
   contactJsonParser,
   contactPayloadErrorHandler,
   createContactRouter,
+  logSmtpBootstrap,
 } from "./contactApi.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -27,5 +28,6 @@ app.get("/{*path}", (_req, res) => {
 app.use(contactPayloadErrorHandler);
 
 app.listen(port, "0.0.0.0", () => {
+  logSmtpBootstrap();
   console.log(`Production server listening on port ${port}`);
 });

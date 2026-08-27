@@ -2,12 +2,17 @@ import "dotenv/config";
 import express from "express";
 import nodemailer from "nodemailer";
 
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "contact@panoramiaccs.com";
-const SMTP_HOST = process.env.SMTP_HOST || "";
-const SMTP_PORT = Number(process.env.SMTP_PORT) || 465;
-const SMTP_SECURE = String(process.env.SMTP_SECURE ?? "true") !== "false";
-const SMTP_USER = process.env.SMTP_USER || "";
-const SMTP_PASSWORD = process.env.SMTP_PASSWORD || "";
+const trimEnv = (value) => (typeof value === "string" ? value.trim() : "");
+
+const CONTACT_EMAIL =
+  trimEnv(process.env.CONTACT_EMAIL) || "contact@panoramiaccs.com";
+const SMTP_HOST = trimEnv(process.env.SMTP_HOST);
+const SMTP_PORT = Number(trimEnv(process.env.SMTP_PORT)) || 465;
+const SMTP_SECURE = String(process.env.SMTP_SECURE ?? "true").trim() !== "false";
+const SMTP_USER = trimEnv(process.env.SMTP_USER);
+const SMTP_PASSWORD = process.env.SMTP_PASSWORD ?? "";
+const SMTP_FROM = trimEnv(process.env.SMTP_FROM) || SMTP_USER || CONTACT_EMAIL;
+const CONTACT_DEBUG = String(process.env.CONTACT_DEBUG ?? "").trim() === "true";
 
 const MAX_NAME_LENGTH = 120;
 const MAX_EMAIL_LENGTH = 254;
@@ -17,6 +22,11 @@ const RATE_LIMIT_MAX = 5;
 
 /** @type {Map<string, number[]>} */
 const rateLimitHits = new Map();
+
+const isLocalRelayHost = (host) =>
+  host === "localhost" ||
+  host === "127.0.0.1" ||
+  host === "relay-hosting.secureserver.net";
 
 const isValidEmail = (value) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) && value.length <= MAX_EMAIL_LENGTH;
@@ -54,19 +64,65 @@ const isRateLimited = (ip) => {
 };
 
 const createTransporter = () => {
-  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASSWORD) {
+  if (!SMTP_HOST) {
     return null;
   }
 
-  return nodemailer.createTransport({
+  const needsAuth = Boolean(SMTP_USER && SMTP_PASSWORD);
+  if (!needsAuth && !isLocalRelayHost(SMTP_HOST)) {
+    return null;
+  }
+
+  /** @type {import("nodemailer").TransportOptions} */
+  const options = {
     host: SMTP_HOST,
     port: SMTP_PORT,
     secure: SMTP_SECURE,
-    auth: {
+    connectionTimeout: 15000,
+    greetingTimeout: 15000,
+    socketTimeout: 20000,
+    tls: {
+      minVersion: "TLSv1.2",
+      // Some GoDaddy cPanel hosts present certs that fail strict validation
+      // from managed Node runtimes; keep overridable via env.
+      rejectUnauthorized:
+        String(process.env.SMTP_TLS_REJECT_UNAUTHORIZED ?? "true").trim() !==
+        "false",
+    },
+  };
+
+  if (needsAuth) {
+    options.auth = {
       user: SMTP_USER,
       pass: SMTP_PASSWORD,
-    },
-  });
+    };
+  }
+
+  if (!SMTP_SECURE && SMTP_PORT === 587) {
+    options.requireTLS = true;
+  }
+
+  return nodemailer.createTransport(options);
+};
+
+const classifySmtpError = (error) => {
+  const code = typeof error?.code === "string" ? error.code : "";
+  const responseCode =
+    typeof error?.responseCode === "number" ? error.responseCode : null;
+
+  if (code === "EAUTH" || responseCode === 535) {
+    return "smtp_auth_failed";
+  }
+  if (
+    code === "ESOCKET" ||
+    code === "ECONNECTION" ||
+    code === "ETIMEDOUT" ||
+    code === "ECONNREFUSED" ||
+    code === "ENOTFOUND"
+  ) {
+    return "smtp_connection_failed";
+  }
+  return "smtp_send_failed";
 };
 
 export const handleContactPost = async (req, res) => {
@@ -119,7 +175,7 @@ export const handleContactPost = async (req, res) => {
 
     if (!transporter) {
       console.error(
-        "[contact] SMTP is not configured. Set SMTP_HOST, SMTP_USER, and SMTP_PASSWORD.",
+        "[contact] SMTP is not configured. Set SMTP_HOST and either auth credentials or a local relay host.",
       );
       return res.status(503).json({
         ok: false,
@@ -150,7 +206,7 @@ export const handleContactPost = async (req, res) => {
     `.trim();
 
     await transporter.sendMail({
-      from: `"Panoramia Capital" <${SMTP_USER}>`,
+      from: `"Panoramia Capital" <${SMTP_FROM}>`,
       to: CONTACT_EMAIL,
       replyTo: email,
       subject,
@@ -160,11 +216,64 @@ export const handleContactPost = async (req, res) => {
 
     return res.status(200).json({ ok: true });
   } catch (error) {
-    console.error("[contact] Failed to send email:", error);
+    const smtpError = classifySmtpError(error);
+    console.error("[contact] Failed to send email:", {
+      error: smtpError,
+      code: error?.code,
+      command: error?.command,
+      responseCode: error?.responseCode,
+      response: error?.response,
+      message: error?.message,
+      smtpHost: SMTP_HOST,
+      smtpPort: SMTP_PORT,
+      smtpSecure: SMTP_SECURE,
+      smtpUserSet: Boolean(SMTP_USER),
+    });
+
     return res.status(500).json({
       ok: false,
-      error: "internal_error",
+      error: smtpError,
       message: "Unable to send message. Please try again later.",
+    });
+  }
+};
+
+export const handleContactHealthGet = async (_req, res) => {
+  if (!CONTACT_DEBUG) {
+    return res.status(404).json({ ok: false, error: "not_found" });
+  }
+
+  const transporter = createTransporter();
+  const config = {
+    host: SMTP_HOST || null,
+    port: SMTP_PORT,
+    secure: SMTP_SECURE,
+    user: SMTP_USER || null,
+    from: SMTP_FROM,
+    to: CONTACT_EMAIL,
+    authConfigured: Boolean(SMTP_USER && SMTP_PASSWORD),
+  };
+
+  if (!transporter) {
+    return res.status(503).json({
+      ok: false,
+      error: "mail_not_configured",
+      config,
+    });
+  }
+
+  try {
+    await transporter.verify();
+    return res.status(200).json({ ok: true, verify: "ok", config });
+  } catch (error) {
+    return res.status(500).json({
+      ok: false,
+      verify: "fail",
+      error: classifySmtpError(error),
+      code: error?.code || null,
+      responseCode: error?.responseCode || null,
+      message: error?.message || null,
+      config,
     });
   }
 };
@@ -173,6 +282,7 @@ export const handleContactPost = async (req, res) => {
 export const createContactRouter = () => {
   const router = express.Router();
   router.post("/contact", handleContactPost);
+  router.get("/contact/health", handleContactHealthGet);
   return router;
 };
 
@@ -196,4 +306,17 @@ export const contactPayloadErrorHandler = (err, _req, res, next) => {
   }
 
   return next(err);
+};
+
+export const logSmtpBootstrap = () => {
+  console.log("[contact] SMTP bootstrap", {
+    host: SMTP_HOST || null,
+    port: SMTP_PORT,
+    secure: SMTP_SECURE,
+    user: SMTP_USER || null,
+    from: SMTP_FROM,
+    to: CONTACT_EMAIL,
+    authConfigured: Boolean(SMTP_USER && SMTP_PASSWORD),
+    debug: CONTACT_DEBUG,
+  });
 };
