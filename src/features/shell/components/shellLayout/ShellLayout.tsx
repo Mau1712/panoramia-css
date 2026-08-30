@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { LocaleSync } from "@app/i18n";
 import { ScrollToTop } from "@app/router/ScrollToTop";
 import { DocumentMeta } from "@app/seo";
 import { GlobalContainer } from "@shared/ui/containers/globalContainer/GlobalContainer";
@@ -14,6 +15,7 @@ export const ShellLayout = () => {
   return (
     <ShellLayoutElement>
       <ScrollToTop />
+      <LocaleSync />
       <DocumentMeta />
       <SiteHeader />
       <ShellContentElement>

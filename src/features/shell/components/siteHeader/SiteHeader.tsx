@@ -1,7 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import type { AppLanguage } from "@app/i18n";
+import {
+  getLocaleFromPathname,
+  localizePath,
+  stripLocalePrefix,
+  switchLocalePath,
+} from "@app/i18n";
 import { CloseIcon, MenuIcon } from "@assets/icons";
 import panoramiaLogo from "@assets/icons/Panoramia-Capital.webp";
 import { OffCanvas } from "@shared/ui/overlays/offCanvas/OffCanvas";
@@ -25,14 +31,20 @@ import {
   SiteHeaderElement,
 } from "./SiteHeader.elements";
 
-const getActiveNavIndex = (pathname: string) =>
-  navItems.findIndex((item) =>
-    item.path === "/" ? pathname === "/" : pathname.startsWith(item.path),
+const getActiveNavIndex = (pathname: string) => {
+  const contentPath = stripLocalePrefix(pathname);
+  return navItems.findIndex((item) =>
+    item.path === "/"
+      ? contentPath === "/"
+      : contentPath.startsWith(item.path),
   );
+};
 
 export const SiteHeader = () => {
   const { t, i18n } = useTranslation();
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
+  const navigate = useNavigate();
+  const locale = getLocaleFromPathname(pathname);
   const navRef = useRef<HTMLElement>(null);
   const linkRefs = useRef<Array<HTMLAnchorElement | null>>([]);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -42,14 +54,14 @@ export const SiteHeader = () => {
     ready: false,
   });
 
-  const currentLanguage = (i18n.resolvedLanguage ?? i18n.language).slice(
-    0,
-    2,
-  ) as AppLanguage;
-  const languageIndex = currentLanguage === "es" ? 1 : 0;
+  const languageIndex = locale === "es" ? 1 : 0;
 
   const handleLanguageChange = (language: AppLanguage) => {
+    const nextPath = switchLocalePath(pathname, language, hash);
     void i18n.changeLanguage(language);
+    if (nextPath !== `${pathname}${hash}`) {
+      navigate(nextPath);
+    }
   };
 
   const handleCloseMenu = () => {
@@ -98,7 +110,10 @@ export const SiteHeader = () => {
 
   return (
     <SiteHeaderElement data-site-header>
-      <LogoLinkElement to="/" aria-label={t("brand.fullName")}>
+      <LogoLinkElement
+        to={localizePath("/", locale)}
+        aria-label={t("brand.fullName")}
+      >
         <LogoImageElement src={panoramiaLogo} alt={t("brand.fullName")} />
       </LogoLinkElement>
 
@@ -108,7 +123,7 @@ export const SiteHeader = () => {
             {navItems.map((item, index) => (
               <NavLinkElement
                 key={item.path}
-                to={item.path}
+                to={localizePath(item.path, locale)}
                 end={item.path === "/"}
                 ref={(element) => {
                   linkRefs.current[index] = element;
@@ -161,7 +176,11 @@ export const SiteHeader = () => {
         closeAriaLabel={t("nav.closeMenuAria")}
       >
         <MobileMenuHeaderElement>
-          <LogoLinkElement to="/" aria-label={t("brand.fullName")} onClick={handleCloseMenu}>
+          <LogoLinkElement
+            to={localizePath("/", locale)}
+            aria-label={t("brand.fullName")}
+            onClick={handleCloseMenu}
+          >
             <LogoImageElement src={panoramiaLogo} alt={t("brand.fullName")} />
           </LogoLinkElement>
           <CloseButtonElement
@@ -177,7 +196,7 @@ export const SiteHeader = () => {
           {navItems.map((item) => (
             <MobileNavLinkElement
               key={item.path}
-              to={item.path}
+              to={localizePath(item.path, locale)}
               end={item.path === "/"}
               onClick={handleCloseMenu}
             >

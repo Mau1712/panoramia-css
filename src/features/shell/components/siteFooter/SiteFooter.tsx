@@ -1,4 +1,6 @@
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
+import { getLocaleFromPathname, localizePath } from "@app/i18n";
 import { InstagramIcon } from "@assets/icons";
 import panoramiaLogo from "@assets/logo-reverse.png";
 import { footerEmail, footerInstagramUrl, footerPhones, navItems } from "../../data";
@@ -23,12 +25,17 @@ import {
 
 export const SiteFooter = () => {
   const { t } = useTranslation("common");
+  const { pathname } = useLocation();
+  const locale = getLocaleFromPathname(pathname);
   const year = new Date().getFullYear();
 
   return (
     <SiteFooterElement aria-label={t("footer.aria")}>
       <SiteFooterInnerElement>
-        <SiteFooterBrandElement to="/" aria-label={t("brand.fullName")}>
+        <SiteFooterBrandElement
+          to={localizePath("/", locale)}
+          aria-label={t("brand.fullName")}
+        >
           <SiteFooterLogoElement
             src={panoramiaLogo}
             alt={t("brand.fullName")}
@@ -73,7 +80,10 @@ export const SiteFooter = () => {
             </SiteFooterHeadingElement>
             <SiteFooterSitemapElement aria-label={t("footer.sitemap")}>
               {navItems.map((item) => (
-                <SiteFooterNavLinkElement key={item.path} to={item.path}>
+                <SiteFooterNavLinkElement
+                  key={item.path}
+                  to={localizePath(item.path, locale)}
+                >
                   {t(item.labelKey)}
                 </SiteFooterNavLinkElement>
               ))}

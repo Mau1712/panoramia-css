@@ -2,11 +2,18 @@ import { useEffect, useState } from "react";
 
 const MOBILE_MEDIA_QUERY = "(max-width: 767px)";
 
+const canUseDom = () =>
+  typeof window !== "undefined" && typeof document !== "undefined";
+
 export const useMobileExpand = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
+    if (!canUseDom()) {
+      return;
+    }
+
     const mediaQuery = window.matchMedia(MOBILE_MEDIA_QUERY);
     const updateIsMobile = () => {
       const matches = mediaQuery.matches;

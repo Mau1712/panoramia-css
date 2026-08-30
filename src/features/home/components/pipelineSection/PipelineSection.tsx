@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocalizedPath } from "@app/i18n";
 import { ChevronBackIcon, ChevronForwardIcon } from "@assets/icons";
 import { pipelineCards } from "../../data";
 import {
@@ -26,6 +27,7 @@ import {
 
 export const PipelineSection = () => {
   const { t, i18n } = useTranslation("common");
+  const localize = useLocalizedPath();
   const carouselRef = useRef<HTMLUListElement>(null);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(true);
@@ -174,7 +176,7 @@ export const PipelineSection = () => {
         <PipelineCarouselElement ref={carouselRef}>
           {pipelineCards.map((card, index) => (
             <PipelineCardElement key={card.id} $index={index}>
-              <PipelineCardLinkElement to={card.to}>
+              <PipelineCardLinkElement to={localize(card.to)}>
                 <PipelineCardMediaElement
                   src={card.image}
                   alt={t(card.imageAltKey)}

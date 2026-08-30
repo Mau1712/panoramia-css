@@ -6,7 +6,17 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://panoramiaccs.com/en</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://panoramiaccs.com/about-us</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://panoramiaccs.com/en/about-us</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -16,7 +26,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://panoramiaccs.com/en/track-record</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://panoramiaccs.com/track-record/residential</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://panoramiaccs.com/en/track-record/residential</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -26,7 +46,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://panoramiaccs.com/en/track-record/logistics</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://panoramiaccs.com/track-record/luxury</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://panoramiaccs.com/en/track-record/luxury</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -36,12 +66,27 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://panoramiaccs.com/en/current-projects</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://panoramiaccs.com/land-holdings</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://panoramiaccs.com/en/land-holdings</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://panoramiaccs.com/contact</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://panoramiaccs.com/en/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>

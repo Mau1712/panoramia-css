@@ -27,6 +27,10 @@ export const MicroFulfillmentSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const mediaQuery = window.matchMedia(MOBILE_MEDIA_QUERY);
     const updateIsMobile = () => {
       const matches = mediaQuery.matches;

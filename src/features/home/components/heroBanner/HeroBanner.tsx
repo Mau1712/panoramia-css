@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocalizedPath } from "@app/i18n";
 import { HERO_CAROUSEL_INTERVAL_MS, heroSlides } from "../../data";
 import {
   HeroBannerContentElement,
@@ -17,6 +18,7 @@ import {
 
 export const HeroBanner = () => {
   const { t } = useTranslation();
+  const localize = useLocalizedPath();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -61,7 +63,7 @@ export const HeroBanner = () => {
           <HeroBannerTextElement>
             {t("pages.home.hero.text")}
           </HeroBannerTextElement>
-          <HeroBannerCtaElement to="/about-us">
+          <HeroBannerCtaElement to={localize("/about-us")}>
             {t("pages.home.hero.cta")}
           </HeroBannerCtaElement>
         </HeroBannerContentElement>

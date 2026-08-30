@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocalizedPath } from "@app/i18n";
 import { ChevronBackIcon, ChevronForwardIcon } from "@assets/icons";
 import blueprintBg from "@assets/selectedTrack/selected-track-blueprint-bg.png";
 import { selectedTrackCards } from "../../data";
@@ -36,6 +37,7 @@ export const SelectedTrackSection = ({
   linkCards = true,
 }: SelectedTrackSectionProps) => {
   const { t, i18n } = useTranslation("common");
+  const localize = useLocalizedPath();
   const carouselRef = useRef<HTMLUListElement>(null);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -204,7 +206,7 @@ export const SelectedTrackSection = ({
             return (
               <SelectedTrackCardElement key={card.id} $index={index}>
                 {linkCards ? (
-                  <SelectedTrackCardLinkElement to={card.path}>
+                  <SelectedTrackCardLinkElement to={localize(card.path)}>
                     {cardContent}
                   </SelectedTrackCardLinkElement>
                 ) : (

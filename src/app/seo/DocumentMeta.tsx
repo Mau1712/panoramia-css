@@ -2,11 +2,15 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import {
+  getLocaleFromPathname,
+  localizePath,
+  stripLocalePrefix,
+} from "@app/i18n";
+import {
   DEFAULT_OG_IMAGE,
   SITE_NAME,
   absoluteUrl,
   resolveRouteSeo,
-  type SeoLocale,
 } from "./siteMeta";
 
 const upsertMetaByName = (name: string, content: string) => {
@@ -51,19 +55,34 @@ const upsertLink = (rel: string, href: string) => {
   element.setAttribute("href", href);
 };
 
-const toSeoLocale = (language: string): SeoLocale =>
-  language.startsWith("es") ? "es" : "en";
+const upsertHreflang = (hreflang: string, href: string) => {
+  let element = document.head.querySelector<HTMLLinkElement>(
+    `link[rel="alternate"][hreflang="${hreflang}"]`,
+  );
+
+  if (!element) {
+    element = document.createElement("link");
+    element.setAttribute("rel", "alternate");
+    element.setAttribute("hreflang", hreflang);
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute("href", href);
+};
 
 /**
  * Keeps document title/description/canonical in sync with the active route
- * and language. Social crawlers that do not execute JS still rely on index.html.
+ * and language. Social crawlers that do not execute JS still rely on prerendered HTML.
  */
 export const DocumentMeta = () => {
   const { pathname } = useLocation();
   const { i18n } = useTranslation();
-  const locale = toSeoLocale(i18n.resolvedLanguage ?? i18n.language);
-  const seo = resolveRouteSeo(pathname, locale);
+  const locale = getLocaleFromPathname(pathname);
+  const contentPath = stripLocalePrefix(pathname);
+  const seo = resolveRouteSeo(contentPath, locale);
   const canonical = absoluteUrl(pathname);
+  const esUrl = absoluteUrl(localizePath(contentPath, "es"));
+  const enUrl = absoluteUrl(localizePath(contentPath, "en"));
 
   useEffect(() => {
     document.title = seo.title;
@@ -74,13 +93,28 @@ export const DocumentMeta = () => {
     upsertMetaByProperty("og:description", seo.description);
     upsertMetaByProperty("og:url", canonical);
     upsertMetaByProperty("og:locale", locale === "es" ? "es_VE" : "en_US");
+    upsertMetaByProperty(
+      "og:locale:alternate",
+      locale === "es" ? "en_US" : "es_VE",
+    );
     upsertMetaByName("twitter:title", seo.title);
     upsertMetaByName("twitter:description", seo.description);
     upsertMetaByName("twitter:image", DEFAULT_OG_IMAGE);
     upsertMetaByProperty("og:image", DEFAULT_OG_IMAGE);
     upsertMetaByProperty("og:site_name", SITE_NAME);
     upsertLink("canonical", canonical);
-  }, [canonical, locale, seo.description, seo.title]);
+    upsertHreflang("es", esUrl);
+    upsertHreflang("en", enUrl);
+    upsertHreflang("x-default", esUrl);
+  }, [
+    canonical,
+    enUrl,
+    esUrl,
+    locale,
+    seo.description,
+    seo.title,
+    i18n.language,
+  ]);
 
   return null;
 };

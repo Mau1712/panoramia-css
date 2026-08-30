@@ -1,4 +1,5 @@
 import express from "express";
+import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -20,9 +21,31 @@ app.use("/api", createContactRouter());
 
 app.use(express.static(distPath, { index: false }));
 
-// Express 5 SPA fallback: serve index.html for client-side routes.
-app.get("/{*path}", (_req, res) => {
-  res.sendFile(path.join(distPath, "index.html"));
+const resolvePrerenderedHtml = (requestPath) => {
+  const normalized =
+    requestPath.length > 1 && requestPath.endsWith("/")
+      ? requestPath.slice(0, -1)
+      : requestPath;
+
+  if (normalized === "/" || normalized === "") {
+    return path.join(distPath, "index.html");
+  }
+
+  const safeRelative = normalized.replace(/^\/+/, "").replace(/\.\./g, "");
+  return path.join(distPath, safeRelative, "index.html");
+};
+
+// Prefer prerendered HTML per route; fall back to SPA shell.
+app.get("/{*path}", (req, res, next) => {
+  const prerendered = resolvePrerenderedHtml(req.path);
+
+  if (fs.existsSync(prerendered)) {
+    return res.sendFile(prerendered);
+  }
+
+  return res.sendFile(path.join(distPath, "index.html"), (error) => {
+    if (error) next(error);
+  });
 });
 
 app.use(contactPayloadErrorHandler);
