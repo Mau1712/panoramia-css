@@ -1,17 +1,17 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import { useLocalizedPath } from "@app/i18n";
 import { AboutUsPage } from "@features/aboutUs";
 import { ContactPage } from "@features/contact";
 import { CurrentProjectsPage } from "@features/currentProjects";
 import { HomePage } from "@features/home";
 import { LandHoldingsPage } from "@features/landHoldings";
-import { ShellLayout } from "@features/shell";
+import { NotFoundPage, ShellLayout } from "@features/shell";
 import {
   LogisticsTrackPage,
   LuxuryTrackPage,
   ResidentialTrackPage,
   TrackRecordPage,
 } from "@features/trackRecord";
-import { useLocalizedPath } from "@app/i18n";
 
 const LocaleAwareRedirect = ({ to }: { to: string }) => {
   const localize = useLocalizedPath();
@@ -33,7 +33,7 @@ const appPageRoutes = (
     />
     <Route path="land-holdings" element={<LandHoldingsPage />} />
     <Route path="contact" element={<ContactPage />} />
-    <Route path="*" element={<LocaleAwareRedirect to="/" />} />
+    <Route path="*" element={<NotFoundPage />} />
   </>
 );
 

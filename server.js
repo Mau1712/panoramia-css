@@ -19,12 +19,14 @@ app.disable("x-powered-by");
 app.use(contactJsonParser);
 app.use("/api", createContactRouter());
 
-app.use(express.static(distPath, { index: false }));
+app.use(express.static(distPath, { index: false, redirect: false }));
 
 /** Legacy URLs → canonical destinations (HTTP 301, not client-side Navigate). */
 const permanentRedirects = new Map([
   ["/platform", "/"],
   ["/en/platform", "/en"],
+  ["/current-projects/urban-logistics", "/current-projects"],
+  ["/en/current-projects/urban-logistics", "/en/current-projects"],
 ]);
 
 const normalizeRequestPath = (requestPath) =>
@@ -43,6 +45,36 @@ const resolvePrerenderedHtml = (requestPath) => {
   return path.join(distPath, safeRelative, "index.html");
 };
 
+const resolveNotFoundHtml = (requestPath) => {
+  const normalized = normalizeRequestPath(requestPath);
+  const isEnglish =
+    normalized === "/en" || normalized.startsWith("/en/");
+
+  const localized = path.join(
+    distPath,
+    isEnglish ? "en" : "",
+    "404.html",
+  );
+
+  if (fs.existsSync(localized)) {
+    return localized;
+  }
+
+  return path.join(distPath, "404.html");
+};
+
+const sendNotFound = (req, res, next) => {
+  const notFoundPage = resolveNotFoundHtml(req.path);
+
+  if (!fs.existsSync(notFoundPage)) {
+    return res.status(404).type("text").send("Not Found");
+  }
+
+  return res.status(404).sendFile(notFoundPage, (error) => {
+    if (error) next(error);
+  });
+};
+
 app.get("/{*path}", (req, res, next) => {
   const normalized = normalizeRequestPath(req.path);
   const redirectTo = permanentRedirects.get(normalized);
@@ -57,9 +89,7 @@ app.get("/{*path}", (req, res, next) => {
     return res.sendFile(prerendered);
   }
 
-  return res.sendFile(path.join(distPath, "index.html"), (error) => {
-    if (error) next(error);
-  });
+  return sendNotFound(req, res, next);
 });
 
 app.use(contactPayloadErrorHandler);

@@ -29,6 +29,13 @@
   "whatsapp": {
     "aria": "Contact us on WhatsApp"
   },
+  "notFound": {
+    "code": "Error 404",
+    "title": "Page not found",
+    "description": "The address you requested does not exist or is no longer available.",
+    "cta": "Back to home",
+    "documentTitle": "Page not found | Panoramia Capital"
+  },
   "footer": {
     "aria": "Site footer",
     "address": "Address",
