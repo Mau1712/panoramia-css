@@ -21,11 +21,19 @@ app.use("/api", createContactRouter());
 
 app.use(express.static(distPath, { index: false }));
 
+/** Legacy URLs → canonical destinations (HTTP 301, not client-side Navigate). */
+const permanentRedirects = new Map([
+  ["/platform", "/"],
+  ["/en/platform", "/en"],
+]);
+
+const normalizeRequestPath = (requestPath) =>
+  requestPath.length > 1 && requestPath.endsWith("/")
+    ? requestPath.slice(0, -1)
+    : requestPath;
+
 const resolvePrerenderedHtml = (requestPath) => {
-  const normalized =
-    requestPath.length > 1 && requestPath.endsWith("/")
-      ? requestPath.slice(0, -1)
-      : requestPath;
+  const normalized = normalizeRequestPath(requestPath);
 
   if (normalized === "/" || normalized === "") {
     return path.join(distPath, "index.html");
@@ -35,9 +43,15 @@ const resolvePrerenderedHtml = (requestPath) => {
   return path.join(distPath, safeRelative, "index.html");
 };
 
-// Prefer prerendered HTML per route; fall back to SPA shell.
 app.get("/{*path}", (req, res, next) => {
-  const prerendered = resolvePrerenderedHtml(req.path);
+  const normalized = normalizeRequestPath(req.path);
+  const redirectTo = permanentRedirects.get(normalized);
+
+  if (redirectTo) {
+    return res.redirect(301, redirectTo);
+  }
+
+  const prerendered = resolvePrerenderedHtml(normalized);
 
   if (fs.existsSync(prerendered)) {
     return res.sendFile(prerendered);
