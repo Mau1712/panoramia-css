@@ -16,11 +16,35 @@ import {
   HeroBannerTitleElement,
 } from "./HeroBanner.elements";
 
+const HERO_IMAGE_WIDTH = 1920;
+const HERO_IMAGE_HEIGHT = 1080;
+
 export const HeroBanner = () => {
   const { t } = useTranslation();
   const localize = useLocalizedPath();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const primaryHeroSrc = heroSlides[0]?.src;
+
+  useEffect(() => {
+    if (!primaryHeroSrc) {
+      return;
+    }
+
+    const existing = document.head.querySelector<HTMLLinkElement>(
+      'link[data-hero-preload="true"]',
+    );
+    const link = existing ?? document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = primaryHeroSrc;
+    link.setAttribute("fetchpriority", "high");
+    link.setAttribute("data-hero-preload", "true");
+
+    if (!existing) {
+      document.head.appendChild(link);
+    }
+  }, [primaryHeroSrc]);
 
   useEffect(() => {
     if (isPaused || heroSlides.length <= 1) {
@@ -47,6 +71,11 @@ export const HeroBanner = () => {
             key={slide.id}
             src={slide.src}
             alt={t(slide.altKey)}
+            width={HERO_IMAGE_WIDTH}
+            height={HERO_IMAGE_HEIGHT}
+            decoding="async"
+            fetchPriority={index === 0 ? "high" : "auto"}
+            loading={index === 0 ? "eager" : "lazy"}
             $active={index === activeIndex}
             aria-hidden={index !== activeIndex}
           />

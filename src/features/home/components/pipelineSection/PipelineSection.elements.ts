@@ -275,20 +275,32 @@ interface PipelineDotElementProps {
 }
 
 export const PipelineDotElement = styled.button<PipelineDotElementProps>`
-  width: ${({ theme, $active }) =>
-    $active ? theme.spacing(3) : theme.spacing(1.5)};
-  height: ${({ theme }) => theme.spacing(1.5)};
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   padding: 0;
   border: none;
   border-radius: ${({ theme }) => theme.radii.pill};
-  background: ${({ theme, $active }) =>
-    $active ? theme.color.text.primary : theme.color.neutral[200]};
+  background: transparent;
   cursor: pointer;
-  transition:
-    width ${({ theme }) => theme.transitions.normal},
-    background ${({ theme }) => theme.transitions.fast};
 
-  &:hover {
+  &::before {
+    content: "";
+    display: block;
+    width: ${({ $active }) => ($active ? "24px" : "12px")};
+    height: 12px;
+    border-radius: ${({ theme }) => theme.radii.pill};
+    background: ${({ theme, $active }) =>
+      $active ? theme.color.text.primary : theme.color.neutral[200]};
+    transition:
+      width ${({ theme }) => theme.transitions.normal},
+      background ${({ theme }) => theme.transitions.fast};
+  }
+
+  &:hover::before {
     background: ${({ theme }) => theme.color.text.primary};
   }
 `;

@@ -122,8 +122,8 @@ export const MenuButtonElement = styled.button`
   display: none;
   align-items: center;
   justify-content: center;
-  width: ${({ theme }) => theme.spacing(5)};
-  height: ${({ theme }) => theme.spacing(5)};
+  width: 44px;
+  height: 44px;
   padding: 0;
   border: none;
   background: transparent;
@@ -235,10 +235,14 @@ interface LanguageButtonElementProps {
 export const LanguageButtonElement = styled.button<LanguageButtonElementProps>`
   position: relative;
   z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   border: none;
   background: transparent;
   cursor: pointer;
-  min-width: ${({ theme }) => theme.spacing(5)};
   padding: ${({ theme }) => `${theme.spacing(1)} ${theme.spacing(1.5)}`};
   color: ${({ theme, $active }) =>
     $active ? theme.color.background.primary : theme.color.text.secondary};

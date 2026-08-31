@@ -59,4 +59,16 @@ div, p, a, span, ul, li, ol, strong, button, input, textarea, select, option, fo
 p, a, span, li, label {
     color: ${({ theme }) => theme.color.text.secondary};
 }
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
 `;

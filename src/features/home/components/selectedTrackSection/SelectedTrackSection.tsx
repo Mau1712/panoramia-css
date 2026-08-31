@@ -147,7 +147,14 @@ export const SelectedTrackSection = ({
       aria-label={t("pages.home.selectedTrack.title")}
     >
       {showBackground ? (
-        <SelectedTrackBgElement src={blueprintBg} alt="" aria-hidden />
+        <SelectedTrackBgElement
+          src={blueprintBg}
+          alt=""
+          aria-hidden
+          width={1920}
+          height={1080}
+          decoding="async"
+        />
       ) : null}
 
       <SelectedTrackInnerElement>

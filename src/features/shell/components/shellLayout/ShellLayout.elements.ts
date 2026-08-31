@@ -21,4 +21,12 @@ export const ShellContentElement = styled.div`
     padding-top: ${({ theme }) =>
       `calc(${theme.spacing(2)} * 2 + ${theme.spacing(4)})`};
   }
+
+  /* Clear fixed WhatsApp FAB on mobile */
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding-bottom: calc(
+      ${({ theme }) => theme.spacing(6.5)} + ${({ theme }) => theme.spacing(2)} +
+        ${({ theme }) => theme.spacing(2)} + env(safe-area-inset-bottom, 0px)
+    );
+  }
 `;

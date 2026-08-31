@@ -77,7 +77,7 @@ const setTitle = (html, title) =>
 const setHtmlLang = (html, lang) =>
   html.replace(/<html\s+([^>]*)lang=["'][^"']*["']/i, `<html $1lang="${lang}"`);
 
-const injectRootAndStyles = (template, { appHtml, css }) => {
+const injectRootAndStyles = (template, { appHtml, css, pathname }) => {
   let html = template.replace(
     /<div id="root"><\/div>|<div id="root">[\s\S]*?<\/div>/i,
     `<div id="root">${appHtml}</div>`,
@@ -85,6 +85,17 @@ const injectRootAndStyles = (template, { appHtml, css }) => {
 
   if (css) {
     html = html.replace("</head>", `    ${css}\n  </head>`);
+  }
+
+  if (pathname === "/" || pathname === "/en") {
+    const heroMatch = appHtml.match(
+      /src="(\/assets\/(?:cover_[^"]+|[^"]*caracas[^"]*)\.webp)"/i,
+    ) || appHtml.match(/<img[^>]*src="(\/assets\/[^"]+\.webp)"/i);
+
+    if (heroMatch?.[1]) {
+      const preload = `<link rel="preload" as="image" href="${heroMatch[1]}" fetchpriority="high" data-hero-preload="true" />`;
+      html = html.replace("</head>", `    ${preload}\n  </head>`);
+    }
   }
 
   return html;
@@ -174,7 +185,11 @@ const run = async () => {
         contentPath,
         locale,
       );
-      const pageHtml = injectRootAndStyles(withMeta, { appHtml, css });
+      const pageHtml = injectRootAndStyles(withMeta, {
+        appHtml,
+        css,
+        pathname,
+      });
 
       const outFile = outputPathForRoute(pathname);
       await fs.mkdir(path.dirname(outFile), { recursive: true });

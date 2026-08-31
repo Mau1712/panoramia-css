@@ -16,13 +16,29 @@ interface SkillCardProps {
 export const SkillCard = ({ item, animate }: SkillCardProps) => {
   const { t, i18n } = useTranslation();
   const count = useCountUp(item.target, animate);
-  const formattedCount = count.toLocaleString(i18n.resolvedLanguage ?? i18n.language);
+  const locale = i18n.resolvedLanguage ?? i18n.language;
+  const formattedCount = count.toLocaleString(locale);
+  const finalFormatted = item.target.toLocaleString(locale);
+  const suffix = t(item.suffixKey);
 
   return (
     <SkillItemElement>
-      <SkillIconElement src={item.icon} alt="" aria-hidden />
+      <SkillIconElement
+        src={item.icon}
+        alt=""
+        aria-hidden
+        width={80}
+        height={80}
+        loading="lazy"
+        decoding="async"
+      />
       <SkillValueElement>
-        {formattedCount}+{t(item.suffixKey)}
+        <span className="sr-only">
+          {finalFormatted}+{suffix}
+        </span>
+        <span aria-hidden="true">
+          {formattedCount}+{suffix}
+        </span>
       </SkillValueElement>
       <SkillDescriptionElement>
         {t(item.descriptionKey)}
