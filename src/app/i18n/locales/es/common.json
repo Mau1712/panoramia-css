@@ -43,8 +43,15 @@
     "email": "Correo",
     "phone": "Teléfono",
     "sitemap": "Mapa del sitio",
+    "privacy": "Política de privacidad",
     "rights": "© {{year}} Panoramia Capital. Todos los derechos reservados.",
     "instagramAria": "Panoramia Capital en Instagram"
+  },
+  "cookies": {
+    "aria": "Aviso de cookies",
+    "message": "Este sitio utiliza cookies técnicas y puede cargar contenidos de terceros (por ejemplo, mapas). Al continuar, aceptas su uso según nuestra",
+    "privacyLink": "política de privacidad",
+    "accept": "Aceptar"
   },
   "pages": {
     "home": {
@@ -715,6 +722,8 @@
         "emailPlaceholder": "tu@email.com",
         "message": "Mensaje",
         "messagePlaceholder": "¿En qué podemos ayudarte?",
+        "privacy": "He leído y acepto la <privacyLink>política de privacidad</privacyLink>.",
+        "privacyRequired": "Debes aceptar la política de privacidad para enviar el mensaje.",
         "submit": "Enviar",
         "sending": "Enviando…",
         "sent": "Gracias — tu mensaje se envió correctamente.",
@@ -722,6 +731,73 @@
         "mailSubject": "Contacto de {{name}}"
       },
       "mapTitle": "Mapa de ubicación de El Encantado Ventas"
+    },
+    "privacy": {
+      "title": "Política de privacidad",
+      "updated": "Última actualización: agosto 2026",
+      "intro": "Esta política describe cómo Panoramia Capital trata los datos personales recogidos a través de panoramiaccs.com, en especial el formulario de contacto y los servicios embebidos de terceros.",
+      "backToContact": "Volver a Contacto",
+      "sections": {
+        "controller": {
+          "title": "Responsable",
+          "text": "El responsable del tratamiento es Panoramia Capital, con domicilio en Oficina Desarrollo Urbanístico Hacienda El Encantado, Caracas, Venezuela.",
+          "items": []
+        },
+        "dataCollected": {
+          "title": "Datos que recogemos",
+          "text": "Cuando usas el formulario de contacto podemos tratar:",
+          "items": [
+            "Nombre o empresa",
+            "Correo electrónico",
+            "Contenido del mensaje",
+            "Datos técnicos básicos de la solicitud (por ejemplo, dirección IP) para seguridad y prevención de abuso"
+          ]
+        },
+        "purposes": {
+          "title": "Finalidades",
+          "text": "Utilizamos estos datos para:",
+          "items": [
+            "Responder a consultas de desarrollo, inversión o alianzas",
+            "Gestionar la comunicación iniciada por el interesado",
+            "Proteger el sitio frente a spam y uso abusivo"
+          ]
+        },
+        "legalBasis": {
+          "title": "Base del tratamiento",
+          "text": "El envío del formulario se basa en tu consentimiento, que manifiestas al marcar la casilla de aceptación de esta política. También podemos tratar datos técnicos necesarios para la seguridad del sitio.",
+          "items": []
+        },
+        "retention": {
+          "title": "Conservación",
+          "text": "Conservamos los mensajes el tiempo necesario para atender la consulta y, en su caso, mantener el historial de la relación comercial, salvo obligación legal distinta.",
+          "items": []
+        },
+        "recipients": {
+          "title": "Destinatarios y encargados",
+          "text": "Los mensajes del formulario se envían a la casilla corporativa contact@panoramiaccs.com. El sitio se hospeda en infraestructura de GoDaddy Node.js Hosting. No vendemos datos personales.",
+          "items": []
+        },
+        "cookies": {
+          "title": "Cookies y terceros",
+          "text": "Usamos almacenamiento local para recordar preferencias básicas (idioma y aceptación de este aviso). El mapa de Contacto puede cargar contenido de Google Maps, sujeto a las prácticas de Google. También pueden cargarse fuentes de Google Fonts.",
+          "items": []
+        },
+        "rights": {
+          "title": "Derechos",
+          "text": "Puedes solicitar acceso, rectificación, actualización o eliminación de tus datos de contacto escribiendo al correo indicado más abajo. Responderemos en un plazo razonable.",
+          "items": []
+        },
+        "contact": {
+          "title": "Contacto para privacidad",
+          "text": "Para ejercer derechos o formular consultas sobre esta política, escríbenos a:",
+          "items": []
+        },
+        "updates": {
+          "title": "Cambios",
+          "text": "Podemos actualizar esta política para reflejar cambios operativos o legales. La versión vigente se publica en esta página con su fecha de actualización.",
+          "items": []
+        }
+      }
     }
   }
 }

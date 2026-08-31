@@ -16,11 +16,13 @@ import {
   SiteFooterLogoElement,
   SiteFooterNavLinkElement,
   SiteFooterPhoneListElement,
+  SiteFooterPrivacyLinkElement,
   SiteFooterRightsElement,
   SiteFooterSitemapElement,
   SiteFooterSocialElement,
   SiteFooterSocialLinkElement,
   SiteFooterTextElement,
+  SiteFooterLegalElement,
 } from "./SiteFooter.elements";
 
 export const SiteFooter = () => {
@@ -92,9 +94,16 @@ export const SiteFooter = () => {
         </SiteFooterGridElement>
 
         <SiteFooterBottomElement>
-          <SiteFooterRightsElement>
-            {t("footer.rights", { year })}
-          </SiteFooterRightsElement>
+          <SiteFooterLegalElement>
+            <SiteFooterRightsElement>
+              {t("footer.rights", { year })}
+            </SiteFooterRightsElement>
+            <SiteFooterPrivacyLinkElement
+              to={localizePath("/privacy", locale)}
+            >
+              {t("footer.privacy")}
+            </SiteFooterPrivacyLinkElement>
+          </SiteFooterLegalElement>
           <SiteFooterSocialElement>
             <SiteFooterSocialLinkElement
               href={footerInstagramUrl}

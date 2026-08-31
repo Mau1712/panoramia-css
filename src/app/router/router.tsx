@@ -5,6 +5,7 @@ import { ContactPage } from "@features/contact";
 import { CurrentProjectsPage } from "@features/currentProjects";
 import { HomePage } from "@features/home";
 import { LandHoldingsPage } from "@features/landHoldings";
+import { PrivacyPage } from "@features/legal";
 import { NotFoundPage, ShellLayout } from "@features/shell";
 import {
   LogisticsTrackPage,
@@ -33,6 +34,7 @@ const appPageRoutes = (
     />
     <Route path="land-holdings" element={<LandHoldingsPage />} />
     <Route path="contact" element={<ContactPage />} />
+    <Route path="privacy" element={<PrivacyPage />} />
     <Route path="*" element={<NotFoundPage />} />
   </>
 );

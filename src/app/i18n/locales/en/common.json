@@ -43,8 +43,15 @@
     "email": "Email",
     "phone": "Phone",
     "sitemap": "Sitemap",
+    "privacy": "Privacy policy",
     "rights": "© {{year}} Panoramia Capital. All rights reserved.",
     "instagramAria": "Panoramia Capital on Instagram"
+  },
+  "cookies": {
+    "aria": "Cookie notice",
+    "message": "This site uses technical cookies and may load third-party content (for example, maps). By continuing, you accept their use under our",
+    "privacyLink": "privacy policy",
+    "accept": "Accept"
   },
   "pages": {
     "home": {
@@ -715,6 +722,8 @@
         "emailPlaceholder": "you@example.com",
         "message": "Message",
         "messagePlaceholder": "How can we help?",
+        "privacy": "I have read and accept the <privacyLink>privacy policy</privacyLink>.",
+        "privacyRequired": "You must accept the privacy policy to send the message.",
         "submit": "Send",
         "sending": "Sending…",
         "sent": "Thanks — your message was sent successfully.",
@@ -722,6 +731,73 @@
         "mailSubject": "Contact from {{name}}"
       },
       "mapTitle": "El Encantado Ventas location map"
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "updated": "Last updated: August 2026",
+      "intro": "This policy explains how Panoramia Capital handles personal data collected through panoramiaccs.com, especially the contact form and embedded third-party services.",
+      "backToContact": "Back to Contact",
+      "sections": {
+        "controller": {
+          "title": "Controller",
+          "text": "The data controller is Panoramia Capital, located at Oficina Desarrollo Urbanístico Hacienda El Encantado, Caracas, Venezuela.",
+          "items": []
+        },
+        "dataCollected": {
+          "title": "Data we collect",
+          "text": "When you use the contact form we may process:",
+          "items": [
+            "Name or company",
+            "Email address",
+            "Message content",
+            "Basic technical request data (for example, IP address) for security and abuse prevention"
+          ]
+        },
+        "purposes": {
+          "title": "Purposes",
+          "text": "We use this data to:",
+          "items": [
+            "Respond to development, investment, or partnership inquiries",
+            "Manage communications initiated by the data subject",
+            "Protect the site against spam and abusive use"
+          ]
+        },
+        "legalBasis": {
+          "title": "Legal basis",
+          "text": "Submitting the form is based on your consent, given by checking the acceptance box for this policy. We may also process technical data necessary for site security.",
+          "items": []
+        },
+        "retention": {
+          "title": "Retention",
+          "text": "We keep messages for as long as needed to handle the inquiry and, where applicable, to maintain the commercial relationship history, unless a different legal obligation applies.",
+          "items": []
+        },
+        "recipients": {
+          "title": "Recipients and processors",
+          "text": "Form messages are delivered to the corporate mailbox contact@panoramiaccs.com. The site is hosted on GoDaddy Node.js Hosting infrastructure. We do not sell personal data.",
+          "items": []
+        },
+        "cookies": {
+          "title": "Cookies and third parties",
+          "text": "We use local storage to remember basic preferences (language and acceptance of this notice). The Contact map may load Google Maps content, subject to Google’s practices. Google Fonts may also be loaded.",
+          "items": []
+        },
+        "rights": {
+          "title": "Rights",
+          "text": "You may request access, rectification, update, or deletion of your contact data by writing to the email below. We will respond within a reasonable timeframe.",
+          "items": []
+        },
+        "contact": {
+          "title": "Privacy contact",
+          "text": "To exercise rights or ask questions about this policy, email:",
+          "items": []
+        },
+        "updates": {
+          "title": "Updates",
+          "text": "We may update this policy to reflect operational or legal changes. The current version is published on this page with its update date.",
+          "items": []
+        }
+      }
     }
   }
 }

@@ -13,6 +13,7 @@ export const PRERENDER_ROUTES = [
   "/current-projects",
   "/land-holdings",
   "/contact",
+  "/privacy",
 ] as const;
 
 export type PrerenderRoute = (typeof PRERENDER_ROUTES)[number];

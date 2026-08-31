@@ -3,6 +3,7 @@ import { LocaleSync } from "@app/i18n";
 import { ScrollToTop } from "@app/router/ScrollToTop";
 import { DocumentMeta } from "@app/seo";
 import { GlobalContainer } from "@shared/ui/containers/globalContainer/GlobalContainer";
+import { CookieNotice } from "../cookieNotice/CookieNotice";
 import { SiteFooter } from "../siteFooter/SiteFooter";
 import { SiteHeader } from "../siteHeader/SiteHeader";
 import { WhatsAppFab } from "../whatsAppFab/WhatsAppFab";
@@ -25,6 +26,7 @@ export const ShellLayout = () => {
       </ShellContentElement>
       <SiteFooter />
       <WhatsAppFab />
+      <CookieNotice />
     </ShellLayoutElement>
   );
 };

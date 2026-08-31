@@ -200,3 +200,27 @@ export const SiteFooterRightsElement = styled.p`
   font-weight: ${({ theme }) => theme.typography.fontWeight.normal};
   line-height: 1.4;
 `;
+
+export const SiteFooterLegalElement = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing(1.5)};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    justify-content: center;
+  }
+`;
+
+export const SiteFooterPrivacyLinkElement = styled(Link)`
+  color: ${({ theme }) => theme.color.neutral[300]};
+  font-size: ${({ theme }) => theme.typography.fontSizes.normal};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  transition: color ${({ theme }) => theme.transitions.fast};
+
+  &:hover {
+    color: ${({ theme }) => theme.color.background.primary};
+  }
+`;

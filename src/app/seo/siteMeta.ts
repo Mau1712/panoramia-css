@@ -147,6 +147,19 @@ export const routeSeo: RouteSeoMeta[] = [
         "Contact Panoramia Capital for development, investment, or partnership inquiries in Caracas, Venezuela.",
     },
   },
+  {
+    path: "/privacy",
+    es: {
+      title: "Política de privacidad | Panoramia Capital",
+      description:
+        "Política de privacidad de Panoramia Capital: tratamiento de datos del formulario de contacto, cookies y terceros.",
+    },
+    en: {
+      title: "Privacy Policy | Panoramia Capital",
+      description:
+        "Panoramia Capital privacy policy: contact form data processing, cookies, and third-party services.",
+    },
+  },
 ];
 
 export const resolveRouteSeo = (

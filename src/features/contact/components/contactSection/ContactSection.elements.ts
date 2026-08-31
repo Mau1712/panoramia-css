@@ -217,6 +217,34 @@ export const ContactTextareaElement = styled.textarea`
   resize: vertical;
 `;
 
+export const ContactConsentElement = styled.label`
+  display: flex;
+  align-items: flex-start;
+  gap: ${({ theme }) => theme.spacing(1.25)};
+  margin-top: ${({ theme }) => theme.spacing(0.5)};
+  color: ${({ theme }) => theme.color.text.secondary};
+  font-size: ${({ theme }) => theme.typography.fontSizes.normal};
+  line-height: 1.5;
+  cursor: pointer;
+`;
+
+export const ContactConsentCheckboxElement = styled.input`
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.15rem;
+  accent-color: ${({ theme }) => theme.color.text.primary};
+`;
+
+export const ContactConsentTextElement = styled.span`
+  a {
+    color: ${({ theme }) => theme.color.text.primary};
+    font-weight: ${({ theme }) => theme.typography.fontWeight.semiBold};
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+`;
+
 export const ContactSubmitElement = styled.button`
   align-self: flex-start;
   margin-top: ${({ theme }) => theme.spacing(1)};

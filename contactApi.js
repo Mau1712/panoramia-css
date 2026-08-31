@@ -263,6 +263,10 @@ export const handleContactPost = async (req, res) => {
     if (!message) errors.push("message");
     else if (message.length > MAX_MESSAGE_LENGTH) errors.push("message_too_long");
 
+    if (body.privacyAccepted !== true) {
+      errors.push("privacy_required");
+    }
+
     if (errors.length > 0) {
       return res.status(400).json({
         ok: false,

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { localizePath, useLocale } from "@app/i18n";
 import {
   CallOutlineIcon,
   LocationOutlineIcon,
@@ -12,6 +14,9 @@ import {
   contactPhones,
 } from "@features/contact/data";
 import {
+  ContactConsentCheckboxElement,
+  ContactConsentElement,
+  ContactConsentTextElement,
   ContactFieldElement,
   ContactFieldLabelElement,
   ContactFormElement,
@@ -44,6 +49,7 @@ interface ContactFormState {
   email: string;
   message: string;
   website: string;
+  privacyAccepted: boolean;
 }
 
 type ContactStatus = "idle" | "loading" | "success" | "error";
@@ -53,12 +59,15 @@ const initialFormState: ContactFormState = {
   email: "",
   message: "",
   website: "",
+  privacyAccepted: false,
 };
 
 export const ContactSection = () => {
   const { t, i18n } = useTranslation("common");
+  const locale = useLocale();
   const [form, setForm] = useState<ContactFormState>(initialFormState);
   const [status, setStatus] = useState<ContactStatus>("idle");
+  const [privacyError, setPrivacyError] = useState(false);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -67,6 +76,13 @@ export const ContactSection = () => {
       return;
     }
 
+    if (!form.privacyAccepted) {
+      setPrivacyError(true);
+      setStatus("idle");
+      return;
+    }
+
+    setPrivacyError(false);
     setStatus("loading");
 
     try {
@@ -81,6 +97,7 @@ export const ContactSection = () => {
           email: form.email.trim(),
           message: form.message.trim(),
           website: form.website,
+          privacyAccepted: true,
         }),
       });
 
@@ -173,7 +190,12 @@ export const ContactSection = () => {
               </ContactInfoItemElement>
             </ContactInfoListElement>
 
-            <ContactFormElement onSubmit={handleSubmit} noValidate={false}>
+            <ContactFormElement
+              method="post"
+              action="/api/contact"
+              onSubmit={handleSubmit}
+              noValidate={false}
+            >
               <ContactFormTitleElement>
                 {t("pages.contact.form.title")}
               </ContactFormTitleElement>
@@ -259,6 +281,40 @@ export const ContactSection = () => {
                   }
                 />
               </ContactFieldElement>
+
+              <ContactConsentElement htmlFor="contact-privacy">
+                <ContactConsentCheckboxElement
+                  id="contact-privacy"
+                  type="checkbox"
+                  name="privacyAccepted"
+                  required
+                  checked={form.privacyAccepted}
+                  disabled={status === "loading"}
+                  onChange={(event) => {
+                    setPrivacyError(false);
+                    setForm((current) => ({
+                      ...current,
+                      privacyAccepted: event.target.checked,
+                    }));
+                  }}
+                />
+                <ContactConsentTextElement>
+                  <Trans
+                    i18nKey="pages.contact.form.privacy"
+                    components={{
+                      privacyLink: (
+                        <Link to={localizePath("/privacy", locale)} />
+                      ),
+                    }}
+                  />
+                </ContactConsentTextElement>
+              </ContactConsentElement>
+
+              {privacyError ? (
+                <ContactFormStatusElement $tone="error" role="alert">
+                  {t("pages.contact.form.privacyRequired")}
+                </ContactFormStatusElement>
+              ) : null}
 
               <ContactSubmitElement
                 type="submit"
