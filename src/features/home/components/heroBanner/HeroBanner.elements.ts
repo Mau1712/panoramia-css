@@ -57,10 +57,10 @@ export const HeroBannerOverlayElement = styled.div`
     linear-gradient(
       100deg,
       rgba(0, 0, 0, 0.72) 0%,
-      rgba(0, 0, 0, 0.38) 48%,
-      rgba(0, 0, 0, 0.18) 100%
+      rgba(0, 0, 0, 0.38) 15%,
+      rgba(0, 0, 0, 0.18) 45%
     ),
-    linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 55%);
+    linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 0%);
 `;
 
 export const HeroBannerInnerElement = styled(SectionContainer)`
@@ -93,6 +93,7 @@ export const HeroBannerTitleElement = styled.h1`
   line-height: 1.05;
   letter-spacing: -0.02em;
   white-space: pre-line;
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 4px 6px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}) {
     font-size: ${({ theme }) => theme.typography.fontSizes.xHeading};
@@ -106,12 +107,14 @@ export const HeroBannerTitleElement = styled.h1`
 `;
 
 export const HeroBannerTextElement = styled.p`
-  max-width: 42ch;
+  max-width: 45ch;
   color: ${({ theme }) => theme.color.background.primary};
   font-size: ${({ theme }) => theme.typography.fontSizes.xLarge};
   font-weight: ${({ theme }) => theme.typography.fontWeight.normal};
   line-height: 1.45;
-  opacity: 0.92;
+  opacity: 1;
+  letter-spacing: 2px;
+  text-shadow: rgba(0, 0, 0, 0.75) 2px 2px 2px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: ${({ theme }) => theme.typography.fontSizes.large};
@@ -187,9 +190,9 @@ export const HeroBannerDotElement = styled.button<HeroBannerDotElementProps>`
     height: 12px;
     border-radius: ${({ theme }) => theme.radii.pill};
     background: ${({ theme, $active }) =>
-      $active
-        ? theme.color.background.primary
-        : "rgba(255, 255, 255, 0.45)"};
+    $active
+      ? theme.color.background.primary
+      : "rgba(255, 255, 255, 0.45)"};
     box-shadow: ${({ theme }) => theme.shadows.small};
     transition:
       width ${({ theme }) => theme.transitions.normal},
