@@ -63,7 +63,9 @@
         "cta": "Saber más",
         "slides": {
           "avilaAlt": "Vista panorámica de Caracas y el Ávila",
-          "caracasAlt": "Vista de Caracas"
+          "caracasAlt": "Vista de Caracas",
+          "aerialAlt": "Vista aérea de terreno y desarrollo residencial en construcción",
+          "constructionAlt": "Desarrollo de obra residencial con maquinaria pesada y estructuras en construcción"
         },
         "dotsAria": "Slides del hero"
       },
@@ -94,7 +96,7 @@
       "platform": {
         "title": "Plataforma verticalmente integrada",
         "intro": "Panoramia Capital opera una plataforma de inversión inmobiliaria verticalmente integrada. Actuamos como General Partner en vehículos de inversión específicos por proyecto, coinvirtiendo junto a Limited Partners y supervisando el ciclo completo del activo: desde la adquisición de tierra hasta la estabilización y la salida.",
-        "imageAlt": "Desarrollo de residencias specialty",
+        "imageAlt": "Vista aérea panorámica de desarrollo residencial integrado",
         "points": {
           "execution": {
             "title": "Experiencia de ejecución",

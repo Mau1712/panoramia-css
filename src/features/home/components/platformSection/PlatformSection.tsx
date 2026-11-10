@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import specialtyImage from "@assets/specialty-Residences3.webp";
+import platformImage from "@assets/platform_residential_development.jpg";
 import { platformPoints } from "../../data";
 import {
   PlatformBodyElement,
@@ -34,8 +34,10 @@ export const PlatformSection = () => {
           <PlatformBodyElement>
             <PlatformMediaWrapElement>
               <PlatformMediaElement
-                src={specialtyImage}
+                src={platformImage}
                 alt={t("pages.home.platform.imageAlt")}
+                loading="lazy"
+                decoding="async"
               />
             </PlatformMediaWrapElement>
 

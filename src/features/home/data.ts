@@ -1,5 +1,6 @@
 import coverImage from "@assets/cover_panoramica_caracas_avila.webp";
-import caracasImage from "@assets/caracas.webp";
+import aerialConstructionImage from "@assets/hero_aerial_construction.jpg";
+import constructionMachineryImage from "@assets/hero_construction_machinery.jpg";
 import experienceIcon from "@assets/skills/exito-480x480.webp";
 import landIcon from "@assets/skills/mapa-480x480.webp";
 import residentialIcon from "@assets/skills/edificio-480x480.webp";
@@ -15,7 +16,11 @@ import luxuryTrackImage from "@assets/selectedTrack/land-development-to-luxury-r
 export interface HeroSlide {
   id: string;
   src: string;
-  altKey: "pages.home.hero.slides.avilaAlt" | "pages.home.hero.slides.caracasAlt";
+  altKey:
+    | "pages.home.hero.slides.avilaAlt"
+    | "pages.home.hero.slides.caracasAlt"
+    | "pages.home.hero.slides.aerialAlt"
+    | "pages.home.hero.slides.constructionAlt";
 }
 
 export const heroSlides: HeroSlide[] = [
@@ -25,9 +30,14 @@ export const heroSlides: HeroSlide[] = [
     altKey: "pages.home.hero.slides.avilaAlt",
   },
   {
-    id: "caracas",
-    src: caracasImage,
-    altKey: "pages.home.hero.slides.caracasAlt",
+    id: "aerial-construction",
+    src: aerialConstructionImage,
+    altKey: "pages.home.hero.slides.aerialAlt",
+  },
+  {
+    id: "construction-machinery",
+    src: constructionMachineryImage,
+    altKey: "pages.home.hero.slides.constructionAlt",
   },
 ];
 

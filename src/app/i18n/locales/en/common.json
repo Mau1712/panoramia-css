@@ -63,7 +63,9 @@
         "cta": "Learn more",
         "slides": {
           "avilaAlt": "Panoramic view of Caracas and El Ávila",
-          "caracasAlt": "View of Caracas"
+          "caracasAlt": "View of Caracas",
+          "aerialAlt": "Aerial view of land and residential development under construction",
+          "constructionAlt": "Residential construction site with heavy machinery and building structures"
         },
         "dotsAria": "Hero slides"
       },
@@ -94,7 +96,7 @@
       "platform": {
         "title": "Vertically Integrated Platform",
         "intro": "Panoramia Capital operates a vertically integrated real estate investment platform. We act as General Partner in project-specific investment vehicles, co-investing alongside Limited Partners and overseeing the full asset lifecycle – from land acquisition through stabilization and exit.",
-        "imageAlt": "Specialty residences development",
+        "imageAlt": "Panoramic aerial view of integrated residential development",
         "points": {
           "execution": {
             "title": "Execution Experience",
