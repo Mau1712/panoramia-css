@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import bannerImage from "@assets/caracas.webp";
+import bannerImage from "@assets/about_us_caracas_avila.webp";
 import {
   AboutUsBannerContentElement,
   AboutUsBannerElement,

@@ -1,5 +1,4 @@
 import coverImage from "@assets/cover_panoramica_caracas_avila.webp";
-import aerialConstructionImage from "@assets/hero_aerial_construction.jpg";
 import constructionMachineryImage from "@assets/hero_construction_machinery.jpg";
 import experienceIcon from "@assets/skills/exito-480x480.webp";
 import landIcon from "@assets/skills/mapa-480x480.webp";
@@ -19,7 +18,6 @@ export interface HeroSlide {
   altKey:
     | "pages.home.hero.slides.avilaAlt"
     | "pages.home.hero.slides.caracasAlt"
-    | "pages.home.hero.slides.aerialAlt"
     | "pages.home.hero.slides.constructionAlt";
 }
 
@@ -28,11 +26,6 @@ export const heroSlides: HeroSlide[] = [
     id: "avila",
     src: coverImage,
     altKey: "pages.home.hero.slides.avilaAlt",
-  },
-  {
-    id: "aerial-construction",
-    src: aerialConstructionImage,
-    altKey: "pages.home.hero.slides.aerialAlt",
   },
   {
     id: "construction-machinery",

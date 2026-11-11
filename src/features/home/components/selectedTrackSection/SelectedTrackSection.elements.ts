@@ -30,7 +30,7 @@ export const SelectedTrackBgElement = styled.img`
   object-position: 70% center;
   pointer-events: none;
   user-select: none;
-  opacity: 0.42;
+  opacity: 0.12;
 `;
 
 export const SelectedTrackInnerElement = styled(SectionContainer)`
