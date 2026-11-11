@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import bannerImage from "@assets/trackRecord/track_record_hero.webp";
+import bannerImage from "@assets/trackRecord/track_record_banner_construction.webp";
 import {
   TrackRecordBannerContentElement,
   TrackRecordBannerElement,
